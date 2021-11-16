@@ -5,10 +5,12 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
+  data_connection_checker_tv: ^0.3.5-nullsafety
+  dio: ^4.0.1
   flutter:
     sdk: flutter
 

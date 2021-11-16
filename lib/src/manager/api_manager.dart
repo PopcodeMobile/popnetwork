@@ -26,8 +26,7 @@ class ApiManager {
 
   static InternalError _makeInternalError() {
     return InternalError(
-      message:
-          'Desculpe, tivemos um problema. Por favor, tente novamente mais tarde.',
+      message: 'Sorry, there was a problem. Please try again later.',
       statusCode: 520,
     );
   }

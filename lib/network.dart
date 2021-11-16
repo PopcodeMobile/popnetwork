@@ -5,10 +5,13 @@ export 'src/http/obsevers/network_error_observable/network_error_observable.dart
 export 'src/http/obsevers/network_error_observable/network_error_type.dart';
 export 'src/manager/api_manager.dart';
 export 'src/methods/delete.dart';
+export 'src/methods/delete.dart';
 export 'src/methods/get.dart';
 export 'src/methods/http_method.dart';
 export 'src/methods/patch.dart';
+export 'src/methods/patch.dart';
 export 'src/methods/post.dart';
+export 'src/methods/put.dart';
 export 'src/methods/put.dart';
 export 'src/mock/base_strategy.dart';
 export 'src/mock/mock_json_file.dart';

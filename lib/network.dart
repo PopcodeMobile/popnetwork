@@ -1,6 +1,8 @@
 export 'src/endpoint/endpoint.dart';
 export 'src/http/creators/dio_creator.dart';
 export 'src/http/http_config.dart';
+export 'src/http/obsevers/network_error_observable/network_error_observable.dart';
+export 'src/http/obsevers/network_error_observable/network_error_type.dart';
 export 'src/manager/api_manager.dart';
 export 'src/methods/delete.dart';
 export 'src/methods/get.dart';

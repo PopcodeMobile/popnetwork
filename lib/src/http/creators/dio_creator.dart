@@ -16,13 +16,13 @@ class DioCreator {
   }
 
   static void init({
-    required String baseUrl,
+    String? baseUrl,
     Map<String, dynamic>? headers,
     SSLPinning? pinning,
   }) {
     _instance = DioCreator._()
       ..headers = headers
-      ..baseUrl = baseUrl
+      ..baseUrl = baseUrl ?? ''
       .._pinning = pinning;
   }
 

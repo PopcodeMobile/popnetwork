@@ -1,10 +1,4 @@
-import 'dart:io';
-
-import 'package:dio/dio.dart';
-import 'package:network/src/endpoint/endpoint.dart';
-import 'package:network/src/http/provider/dio/helpers/request_helper.dart';
-import 'package:network/src/http/provider/dio/helpers/response_type_dio_helper.dart';
-import 'package:network/src/response/network_response.dart';
+part of '../../../creators/dio_creator.dart';
 
 class PostHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
@@ -24,7 +18,10 @@ class PostHelper implements RequestHelper {
                 : Headers.jsonContentType,
             responseType:
                 _contentTypeHelper.getDioResponseType(endpoint.responseType)),
-        queryParameters: endpoint.queryParameters,
+        queryParameters: <String, dynamic>{
+          ...DioCreator._instance.queryParameters.parseQueryParameters(),
+          ...endpoint.queryParameters.parseQueryParameters(),
+        },
         data: endpoint.parameters);
     return NetworkResponse(
       data: response.data,

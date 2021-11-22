@@ -1,8 +1,21 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:network/src/endpoint/endpoint.dart';
 import 'package:network/src/http/creators/ssl_pinning.dart';
 import 'package:network/src/http/http_config.dart';
 import 'package:network/src/http/intercerptors/check_connection_interceptor.dart';
+import 'package:network/src/http/provider/dio/helpers/request_helper.dart';
+import 'package:network/src/http/provider/dio/helpers/response_type_dio_helper.dart';
 import 'package:network/src/internet_connection_checker/internet_connection_checker.dart';
+import 'package:network/src/response/network_response.dart';
+import 'package:network/src/util/query_formatter.dart';
+
+part '../provider/dio/helpers/delete_helper.dart';
+part '../provider/dio/helpers/get_helper.dart';
+part '../provider/dio/helpers/patch_helper.dart';
+part '../provider/dio/helpers/post_helper.dart';
+part '../provider/dio/helpers/put_helper.dart';
 
 class DioCreator {
   static late DioCreator _instance;
@@ -13,6 +26,7 @@ class DioCreator {
   Map<String, dynamic>? headers;
   String baseUrl = '';
   SSLPinning? _pinning;
+  Map<String, dynamic>? queryParameters;
 
   DioCreator._();
 

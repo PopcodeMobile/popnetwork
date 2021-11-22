@@ -23,23 +23,6 @@ class Endpoint {
   final Map<String, dynamic>? queryParameters;
   final MockStrategy? mockStrategy;
   final int? timeout;
-
-  Map<String, String> parseQueryParameters() {
-    final query = queryParameters;
-    if (query != null) {
-      final Map<String, String> _queryParameters =
-          query.map((key, dynamic value) {
-        if (value is List) {
-          return MapEntry<String, String>(key, value.join(','));
-        } else {
-          return MapEntry<String, String>(key, '$value');
-        }
-      });
-
-      return _queryParameters;
-    }
-    return {};
-  }
 }
 
 enum ResponseType { json, plain, bytes, stream }

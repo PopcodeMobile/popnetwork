@@ -38,12 +38,13 @@ class DioCreator {
   ///
   /// Function responsible for starting DioCreator
 
-  static void init(
-      {String? baseUrl,
-      Map<String, dynamic>? headers,
-      SSLPinning? pinning,
-      List<Interceptor>? interceptors,
-      Map<String, dynamic>? queryParameters}) {
+  static void init({
+    String? baseUrl,
+    Map<String, dynamic>? headers,
+    SSLPinning? pinning,
+    List<Interceptor>? interceptors,
+    Map<String, dynamic>? queryParameters,
+  }) {
     _instance = DioCreator._()
       ..headers = headers
       ..baseUrl = baseUrl ?? ''

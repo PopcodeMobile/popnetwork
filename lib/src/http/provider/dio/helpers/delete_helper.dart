@@ -8,8 +8,10 @@ class DeleteHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
 
   @override
-  Future<NetworkResponse> makeRequestHelper(
-      {required Endpoint endpoint, required Dio httpProvider}) async {
+  Future<NetworkResponse> makeRequestHelper({
+    required Endpoint endpoint,
+    required Dio httpProvider,
+  }) async {
     final Response<dynamic> response = await httpProvider.delete<dynamic>(
       endpoint.path,
       data: endpoint.parameters,

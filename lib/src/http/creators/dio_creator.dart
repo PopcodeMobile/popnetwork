@@ -6,24 +6,38 @@ import 'package:network/src/internet_connection_checker/internet_connection_chec
 
 class DioCreator {
   static late DioCreator _instance;
-  late Map<String, dynamic>? headers;
+
+  /// Variables that can be initialized when starting the Application.
+
+  List<Interceptor> interceptors = [];
+  Map<String, dynamic>? headers;
   String baseUrl = '';
-  DioCreator._();
   SSLPinning? _pinning;
+
+  DioCreator._();
 
   factory DioCreator() {
     return _instance;
   }
 
+  /// init()
+  ///
+  /// Function responsible for starting DioCreator
+
   static void init({
     String? baseUrl,
     Map<String, dynamic>? headers,
     SSLPinning? pinning,
+    List<Interceptor>? interceptors,
   }) {
     _instance = DioCreator._()
       ..headers = headers
       ..baseUrl = baseUrl ?? ''
       .._pinning = pinning;
+
+    if (interceptors != null) {
+      _instance.interceptors.addAll(interceptors);
+    }
   }
 
   static Future<Dio> create({
@@ -46,6 +60,12 @@ class DioCreator {
         httpClientAdapter: dioCreator.httpClientAdapter,
       );
     }
+
+    _instance.interceptors.forEach(
+      (interceptor) {
+        dioCreator.interceptors.add(interceptor);
+      },
+    );
 
     return dioCreator;
   }

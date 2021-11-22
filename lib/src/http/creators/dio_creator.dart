@@ -71,11 +71,9 @@ class DioCreator {
       dio: dioCreator,
     ));
 
-    if (_instance._pinning != null) {
-      await _instance._pinning!.pinningCertificate(
-        httpClientAdapter: dioCreator.httpClientAdapter,
-      );
-    }
+    await _instance._pinning?.pinningCertificate(
+      httpClientAdapter: dioCreator.httpClientAdapter,
+    );
 
     _instance.interceptors.forEach(
       (interceptor) {

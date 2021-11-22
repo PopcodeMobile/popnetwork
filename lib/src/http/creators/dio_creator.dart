@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:network/src/http/creators/ssl_pinning.dart';
 import 'package:network/src/http/http_config.dart';
 import 'package:network/src/http/intercerptors/check_connection_interceptor.dart';
 import 'package:network/src/internet_connection_checker/internet_connection_checker.dart';
@@ -6,20 +7,23 @@ import 'package:network/src/internet_connection_checker/internet_connection_chec
 class DioCreator {
   static late DioCreator _instance;
   late Map<String, dynamic>? headers;
-  late String baseUrl;
+  String baseUrl = '';
   DioCreator._();
+  SSLPinning? _pinning;
 
   factory DioCreator() {
     return _instance;
   }
 
   static void init({
-    Map<String, dynamic>? headers,
     required String baseUrl,
+    Map<String, dynamic>? headers,
+    SSLPinning? pinning,
   }) {
     _instance = DioCreator._()
       ..headers = headers
-      ..baseUrl = baseUrl;
+      ..baseUrl = baseUrl
+      .._pinning = pinning;
   }
 
   static Future<Dio> create({
@@ -36,6 +40,12 @@ class DioCreator {
       connectionChecker: InternetConnectionCheckerImpl(),
       dio: dioCreator,
     ));
+
+    if (_instance._pinning != null) {
+      await _instance._pinning!.pinningCertificate(
+        httpClientAdapter: dioCreator.httpClientAdapter,
+      );
+    }
 
     return dioCreator;
   }

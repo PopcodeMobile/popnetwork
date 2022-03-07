@@ -18,28 +18,28 @@ part '../provider/dio/helpers/post_helper.dart';
 part '../provider/dio/helpers/put_helper.dart';
 
 class DioCreator {
+  DioCreator._();
   static late DioCreator _instance;
+  factory DioCreator() => _instance;
 
   /// Variables that can be initialized when starting the Application.
 
   List<Interceptor> interceptors = [];
   Map<String, dynamic>? headers;
   String baseUrl = '';
+  String pathMock = '';
   SSLPinning? _pinning;
   Map<String, dynamic>? queryParameters;
 
-  DioCreator._();
+  static String get pathMocks => _instance.pathMock;
 
-  factory DioCreator() {
-    return _instance;
-  }
 
-  /// init()
   ///
   /// Function responsible for starting DioCreator
 
   static void init({
     String? baseUrl,
+    String? pathMock,
     Map<String, dynamic>? headers,
     SSLPinning? pinning,
     List<Interceptor>? interceptors,
@@ -47,6 +47,7 @@ class DioCreator {
   }) {
     _instance = DioCreator._()
       ..headers = headers
+      ..pathMock = pathMock ?? 'api/response/'
       ..baseUrl = baseUrl ?? ''
       .._pinning = pinning
       ..queryParameters = queryParameters;

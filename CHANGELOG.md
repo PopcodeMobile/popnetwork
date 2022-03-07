@@ -1,3 +1,6 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - Creating packeges
 
-* TODO: Describe initial release.
+- Componentizacao da camada de rede;
+- Configuração da url base;
+- Criação dos inteceptors;
+- Ajustes para conctenacao de urlBase;

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:network/src/endpoint/endpoint.dart';
+import 'package:network/src/http/creators/dio_creator.dart';
 
 class MockJsonFile {
   static Future<dynamic> getDataFrom({required Endpoint endpoint}) async {
@@ -19,7 +20,7 @@ class MockJsonFile {
   }
 
   static Future<String> _openFileAsString(String nameFile) async {
-    return await rootBundle.loadString('assets/api/mock/$nameFile.json');
+    return await rootBundle.loadString('${DioCreator.pathMocks}/$nameFile.json');
   }
 
   static Future<dynamic> _getData(String jsonFile) async {

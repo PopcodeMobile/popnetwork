@@ -12,7 +12,7 @@ and the Flutter guide for
 -->
 
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/66264766/157136086-92d6852a-6a14-4d5f-b6b6-a9ad05736b15.png" alt="adaptable" width="200"/>
+   <img src="https://user-images.githubusercontent.com/66264766/157136086-92d6852a-6a14-4d5f-b6b6-a9ad05736b15.png" alt="adaptable" width="500"/>
 </p>
 
 

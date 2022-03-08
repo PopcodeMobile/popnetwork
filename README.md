@@ -74,6 +74,7 @@ For contributes:
 - Commit your changes: `git commit -m 'feat: my new feature'`;
 - Push to your branch: `git push origin my-feature`.
 - Open a pull request for your code to be evaluated.
+- - For more information visit the [Contribution Guide](https://github.com/Sthaynny/popwork/blob/main/.github/contributing.md)
 
 To help maintain the chosen pattern we also create a file which is called before every commit. This file will format and pinpoint (if present) errors in the codestyle of your code. To enable this you must first copy it to git's hooks folder. If you are developing on macOS, go to the root of the project and run the command below:
 

@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:network/src/endpoint/endpoint.dart';
-import 'package:network/src/http/creators/ssl_pinning.dart';
 import 'package:network/src/http/http_config.dart';
 import 'package:network/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:network/src/http/provider/dio/helpers/response_type_dio_helper.dart';
+import 'package:network/src/http/ssl_pinning/ssl_pinning.dart';
 import 'package:network/src/response/network_response.dart';
 import 'package:network/src/util/query_formatter.dart';
 
@@ -46,7 +46,7 @@ class Popwork {
   }) async {
     _instance = Popwork._()
       ..headers = headers
-      ..pathMock = pathMock ?? 'api/response/'
+      ..pathMock = pathMock ?? 'api/mock/'
       ..baseUrl = baseUrl ?? ''
       .._pinning = pinning
       ..queryParameters = queryParameters;

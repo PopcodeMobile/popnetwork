@@ -64,7 +64,7 @@ void main() {
 }
 ```
 
-Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/popwork/tree/main/.github/endpoint.md)
+Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/popwork/blob/main/docs//endpoint.md)
 
 ```dart
 final endpoint = Endpoint(
@@ -91,7 +91,7 @@ final endpoint = Endpoint(
 
 `result path: https:www.example.com/suffix/path`
 
-Some other base settings can be done like setting intectors, setting default header, etc. More details in [Popwork config Guide](https://github.com/isthaynny/popwork/tree/main/.github/popwork_config.md)
+Some other base settings can be done like setting intectors, setting default header, etc. More details in [Popwork config Guide](https://github.com/isthaynny/popwork/blob/main/docs/popwork_config.md)
 
 ---
 
@@ -116,8 +116,17 @@ final result = await ApiManager.request(
 
 ```
 
-
 If you want to see a usage in a simple way, go to `/example` folder.
+
+## Documentation
+
+- [PopWork Config](https://github.com/isthaynny/popwork/blob/main/docs/popwork_config.md)
+- [Enpoint](https://github.com/isthaynny/popwork/blob/main/docs/endpoint.md);
+- [Working with Mocked Requests](https://github.com/isthaynny/popwork/blob/main/docs/mock.md)
+- [Custom error mapping](https://github.com/isthaynny/popwork/blob/main/docs/mapped_api_error.md)
+- [Raw response notifier](https://github.com/isthaynny/popwork/blob/main/docs/raw_response_notifier.md)
+
+
 ## Additional information
 
 For contributes:

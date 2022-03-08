@@ -4,7 +4,7 @@ import 'package:popwork/src/mock/mock_strategy.dart';
 class Endpoint {
   Endpoint({
     required this.path,
-    required this.method,
+    this.method = HttpMethod.get,
     this.mockName,
     this.responseType = ResponseType.json,
     this.parameters,

@@ -26,13 +26,13 @@ class Popwork {
   List<Interceptor> interceptors = [];
   Map<String, dynamic>? headers;
   String baseUrl = '';
-  String? pathMock ;
+  String? pathMock;
   SSLPinning? _pinning;
   Map<String, dynamic>? queryParameters;
   MappedApiError? mappedApiError;
   Dio? dio;
 
-  static String get pathMocks => _instance.pathMock ?? 'api/mock/';
+  static String get pathMocks => _instance.pathMock ?? 'assets/api/mock/';
   static Dio get dioCreator => _instance.dio ?? Dio();
   static MappedApiError get mapApiError =>
       _instance.mappedApiError ?? MappedApiErrorDefault();

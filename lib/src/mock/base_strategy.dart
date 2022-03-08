@@ -1,4 +1,4 @@
-import 'package:network/src/mock/mock_strategy.dart';
+import 'package:popwork/src/mock/mock_strategy.dart';
 
 class BaseStrategy implements MockStrategy {
   const BaseStrategy({String? jsonFile}) : _jsonFile = jsonFile;

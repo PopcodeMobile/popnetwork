@@ -1,5 +1,5 @@
-import 'package:network/src/endpoint/endpoint.dart';
-import 'package:network/src/response/network_response.dart';
+import 'package:popwork/src/endpoint/endpoint.dart';
+import 'package:popwork/src/response/network_response.dart';
 
 abstract class NetworkProvider {
   Future<NetworkResponse> get({required Endpoint endpoint});

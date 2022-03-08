@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:network/network.dart';
-import 'package:network/src/endpoint/endpoint.dart';
-import 'package:network/src/http/provider/dio/helpers/request_helper.dart';
-import 'package:network/src/http/provider/network_provider.dart';
-import 'package:network/src/popwork.dart';
-import 'package:network/src/response/network_response.dart';
+import 'package:popwork/network.dart';
+import 'package:popwork/src/endpoint/endpoint.dart';
+import 'package:popwork/src/http/provider/dio/helpers/request_helper.dart';
+import 'package:popwork/src/http/provider/network_provider.dart';
+import 'package:popwork/src/popwork.dart';
+import 'package:popwork/src/response/network_response.dart';
 
 class DioProvider implements NetworkProvider {
   Future<NetworkResponse> _safeRequest({

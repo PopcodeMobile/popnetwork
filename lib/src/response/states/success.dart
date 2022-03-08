@@ -1,4 +1,4 @@
-import 'package:network/src/response/api_result.dart';
+import 'package:popwork/src/response/api_result.dart';
 
 class Success implements ApiResult {
   Success({

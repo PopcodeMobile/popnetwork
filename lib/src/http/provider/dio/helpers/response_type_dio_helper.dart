@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart' as dio_response_type show ResponseType;
-import 'package:network/src/endpoint/endpoint.dart';
+import 'package:popwork/src/endpoint/endpoint.dart';
 
 class ContentTypeDioResponse {
   final Map<ResponseType, dio_response_type.ResponseType> _map = {

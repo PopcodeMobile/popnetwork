@@ -1,16 +1,16 @@
 import 'dart:async';
 
-import 'package:network/src/endpoint/endpoint.dart';
-import 'package:network/src/http/provider/dio/dio_provider.dart';
-import 'package:network/src/http/provider/network_provider.dart';
-import 'package:network/src/raw_response_notifier/raw_response_notifiable.dart';
-import 'package:network/src/raw_response_notifier/raw_response_notifier.dart';
-import 'package:network/src/response/api_result.dart';
-import 'package:network/src/response/network_response.dart';
-import 'package:network/src/response/states/apiError/api_error.dart';
-import 'package:network/src/response/states/apiError/mapped_api_error.dart';
-import 'package:network/src/response/states/internal_error.dart';
-import 'package:network/src/response/states/success.dart';
+import 'package:popwork/src/endpoint/endpoint.dart';
+import 'package:popwork/src/http/provider/dio/dio_provider.dart';
+import 'package:popwork/src/http/provider/network_provider.dart';
+import 'package:popwork/src/raw_response_notifier/raw_response_notifiable.dart';
+import 'package:popwork/src/raw_response_notifier/raw_response_notifier.dart';
+import 'package:popwork/src/response/api_result.dart';
+import 'package:popwork/src/response/network_response.dart';
+import 'package:popwork/src/response/states/apiError/api_error.dart';
+import 'package:popwork/src/response/states/apiError/mapped_api_error.dart';
+import 'package:popwork/src/response/states/internal_error.dart';
+import 'package:popwork/src/response/states/success.dart';
 
 class ApiManager {
   static final NetworkProvider _networkProvider = DioProvider();

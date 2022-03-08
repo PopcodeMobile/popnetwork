@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:network/src/response/api_result.dart';
+import 'package:popwork/src/response/api_result.dart';
 
 class InternalError implements ApiResult {
   InternalError({

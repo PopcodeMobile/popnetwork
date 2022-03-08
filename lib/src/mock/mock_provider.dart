@@ -1,13 +1,13 @@
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:network/src/endpoint/endpoint.dart';
-import 'package:network/src/http/obsevers/network_error_observable/network_error_observable.dart';
-import 'package:network/src/http/obsevers/network_error_observable/network_error_type.dart';
-import 'package:network/src/internet_connection_checker/internet_connection_checker.dart';
-import 'package:network/src/mock/mock_json_file.dart';
-import 'package:network/src/response/network_response.dart';
-import 'package:network/src/util/query_formatter.dart';
+import 'package:popwork/src/endpoint/endpoint.dart';
+import 'package:popwork/src/http/obsevers/network_error_observable/network_error_observable.dart';
+import 'package:popwork/src/http/obsevers/network_error_observable/network_error_type.dart';
+import 'package:popwork/src/internet_connection_checker/internet_connection_checker.dart';
+import 'package:popwork/src/mock/mock_json_file.dart';
+import 'package:popwork/src/response/network_response.dart';
+import 'package:popwork/src/util/query_formatter.dart';
 
 class MockProvider {
   InternetConnectionCheckerImpl connectionChecker =

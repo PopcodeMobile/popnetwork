@@ -1,6 +1,6 @@
-import 'package:network/src/raw_response_notifier/raw_response.dart';
-import 'package:network/src/raw_response_notifier/raw_response_notifiable.dart';
-import 'package:network/src/response/network_response.dart';
+import 'package:popwork/src/raw_response_notifier/raw_response.dart';
+import 'package:popwork/src/raw_response_notifier/raw_response_notifiable.dart';
+import 'package:popwork/src/response/network_response.dart';
 
 class RawResponseNotifier {
   final List<RawResponseNotifiable> _listeners = [];

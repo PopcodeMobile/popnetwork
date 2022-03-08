@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:network/network.dart';
-import 'package:network/src/endpoint/endpoint.dart';
+import 'package:popwork/network.dart';
+import 'package:popwork/src/endpoint/endpoint.dart';
 
 class MockJsonFile {
   static Future<dynamic> getDataFrom({required Endpoint endpoint}) async {

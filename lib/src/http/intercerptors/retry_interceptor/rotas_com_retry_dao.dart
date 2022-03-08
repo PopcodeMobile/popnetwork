@@ -1,5 +1,5 @@
-import 'package:network/src/http/intercerptors/retry_interceptor/i_rotas_com_retry.dart';
-import 'package:network/src/http/intercerptors/retry_interceptor/politica_retry.dart';
+import 'package:popwork/src/http/intercerptors/retry_interceptor/i_rotas_com_retry.dart';
+import 'package:popwork/src/http/intercerptors/retry_interceptor/politica_retry.dart';
 
 class RotasComRetryDAO implements IRotasComRetry {
   RotasComRetryDAO._();

@@ -1,5 +1,5 @@
-import 'package:network/src/methods/http_method.dart';
-import 'package:network/src/mock/mock_strategy.dart';
+import 'package:popwork/src/methods/http_method.dart';
+import 'package:popwork/src/mock/mock_strategy.dart';
 
 class Endpoint {
   Endpoint({

@@ -7,6 +7,7 @@ import 'package:popwork/src/methods/post.dart';
 import 'package:popwork/src/methods/put.dart';
 import 'package:popwork/src/response/network_response.dart';
 
+///The existing methods in `HttpMethod` are *.delete*, *.put*, *.patch*, *.post* and *.get*.
 enum HttpMethod {
   get,
   delete,

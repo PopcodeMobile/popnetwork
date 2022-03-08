@@ -1,6 +1,32 @@
 import 'package:popwork/src/methods/http_method.dart';
 import 'package:popwork/src/mock/mock_strategy.dart';
 
+/// Class responsible for additional settings for the route.
+/// To modify the request method, just send it to the endpoint
+/// ```dart
+/// Endpoint(
+///   method: HttpMethod.post
+/// )
+/// ```
+/// There are other settings that can be made, follow the example below in more detail:
+
+/// ```dart
+/// Endpoint(
+///   responseType: ResponseType.bytes,
+///   parameters: <String, dynamic>{"key": value},
+///   queryParameters: <String, dynamic>{"key": value},
+///   headers: <String, dynamic>{"key": value},
+///   mockStrategy: MockStrategy(),
+///   timeout: 30,
+/// )
+/// ```
+///
+/// - `responseType`: type of request that will be returned by the parent;
+/// - `parametrs`: request data passed in the route;
+/// - `queryParameters`: request data as a parameter in the URL;
+/// - `headers`: It is a validator, a unique string identifying the version of the resource.
+/// - `mockStrategy`: strategy to vary the rock according to who is using the package. For more information [Mock Guide](https://github.com/isthaynny/popwork/blob/main/docs/mock.md);
+/// - `timeout`: Time the app will wait for the request response;
 class Endpoint {
   Endpoint({
     this.suffixPath = '',

@@ -13,6 +13,10 @@ import 'package:popwork/src/response/states/apiError/api_error.dart';
 import 'package:popwork/src/response/states/internal_error.dart';
 import 'package:popwork/src/response/states/success.dart';
 
+///
+///Responsible for initiating the request for your api
+///To use it, it is only necessary to call the `.request` function or pass the
+///endpoint as a parameter. To learn more about the endpoint settings [click here](https://github.com/isthaynny/popwork/blob/main/docs/endpoint.md)
 class ApiManager {
   static final NetworkProvider _networkProvider = DioProvider();
   static final RawResponseNotifier _rawResponseNotifier = RawResponseNotifier();

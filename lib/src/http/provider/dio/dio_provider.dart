@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:network/network.dart';
 import 'package:network/src/endpoint/endpoint.dart';
-import 'package:network/src/http/creators/dio_creator.dart';
 import 'package:network/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:network/src/http/provider/network_provider.dart';
+import 'package:network/src/popwork.dart';
 import 'package:network/src/response/network_response.dart';
 
 class DioProvider implements NetworkProvider {
@@ -10,9 +11,9 @@ class DioProvider implements NetworkProvider {
     required RequestHelper requestHelper,
     required Endpoint endpoint,
   }) async {
-    Dio _provider = await DioCreator.create(
-      timeout: endpoint.timeout,
-    );
+    Dio _provider = Popwork.dioCreator
+      ..options.connectTimeout =
+          endpoint.timeout ?? HttpConfig.timeoutConfig.connectionTimeout;
 
     try {
       return await requestHelper.makeRequestHelper(

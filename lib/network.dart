@@ -1,5 +1,4 @@
 export 'src/endpoint/endpoint.dart';
-export 'src/http/creators/dio_creator.dart';
 export 'src/http/http_config.dart';
 export 'src/http/intercerptors/retry_interceptor/i_rotas_com_retry.dart';
 export 'src/http/intercerptors/retry_interceptor/politica_retry.dart';
@@ -21,6 +20,7 @@ export 'src/mock/base_strategy.dart';
 export 'src/mock/mock_json_file.dart';
 export 'src/mock/mock_provider.dart';
 export 'src/mock/mock_strategy.dart';
+export 'src/popwork.dart';
 export 'src/raw_response_notifier/raw_response.dart';
 export 'src/raw_response_notifier/raw_response_notifiable.dart';
 export 'src/raw_response_notifier/raw_response_notifier.dart';

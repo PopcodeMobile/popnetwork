@@ -1,4 +1,4 @@
-part of '../../../creators/dio_creator.dart';
+part of '../../../../popwork.dart';
 
 class DeleteHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
@@ -12,7 +12,7 @@ class DeleteHelper implements RequestHelper {
       endpoint.path,
       data: endpoint.parameters,
       queryParameters: <String, dynamic>{
-        ...DioCreator._instance.queryParameters.parseQueryParameters(),
+        ...Popwork._instance.queryParameters.parseQueryParameters(),
         ...endpoint.queryParameters.parseQueryParameters(),
       },
       options: Options(

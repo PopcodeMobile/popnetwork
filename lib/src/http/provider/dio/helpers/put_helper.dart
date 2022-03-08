@@ -1,4 +1,4 @@
-part of '../../../creators/dio_creator.dart';
+part of '../../../../popwork.dart';
 
 class PutHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
@@ -19,7 +19,7 @@ class PutHelper implements RequestHelper {
           responseType:
               _contentTypeHelper.getDioResponseType(endpoint.responseType)),
       queryParameters: <String, dynamic>{
-        ...DioCreator._instance.queryParameters.parseQueryParameters(),
+        ...Popwork._instance.queryParameters.parseQueryParameters(),
         ...endpoint.queryParameters.parseQueryParameters(),
       },
     );

@@ -1,10 +1,10 @@
-abstract class MappedApiError<T, T2> {
+abstract class MappedApiError<I, O> {
   String get messageDefault;
-  T mappingError(T2 data);
+  O mappingError(I data);
 }
 
 class MappedApiErrorDefault
-    implements MappedApiError<MappedApiErrorDefault, Map<String, dynamic>> {
+    implements MappedApiError<Map<String, dynamic>, MappedApiErrorDefault> {
   MappedApiErrorDefault({
     this.message,
     this.code,

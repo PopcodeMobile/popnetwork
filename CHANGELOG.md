@@ -1,6 +1,11 @@
 ## [0.0.1] - Creating packeges
 
-- Componentizacao da camada de rede;
-- Configuração da url base;
-- Criação dos inteceptors;
-- Ajustes para conctenacao de urlBase;
+- Componentization of the network layer;
+- Configuration of the base url;
+- Creation of interceptors;
+- Adjustments for urlBase binding;
+- Package creation;
+- Creation of functions for configurations;
+- Addition of interface for SSLPinning injection;
+- Adding mock calls;
+- Simplify call with DIO;

@@ -27,7 +27,7 @@ class ApiManager {
 
   static InternalError _makeInternalError() {
     return InternalError(
-      message: 'Sorry, there was a problem. Please try again later.',
+      message: Popwork.mapApiError.messageDefault,
       statusCode: 520,
     );
   }

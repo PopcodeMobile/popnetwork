@@ -1,4 +1,5 @@
 abstract class MappedApiError<T, T2> {
+  String get messageDefault;
   T mappingError(T2 data);
 }
 
@@ -34,4 +35,8 @@ class MappedApiErrorDefault
   MappedApiErrorDefault mappingError(Map<String, dynamic> data) {
     return MappedApiErrorDefault.fromMap(data);
   }
+
+  @override
+  String get messageDefault =>
+      'Sorry, there was a problem. Please try again later.';
 }

@@ -6,9 +6,9 @@ import 'package:popwork/src/endpoint/endpoint.dart';
 
 class MockJsonFile {
   static Future<dynamic> getDataFrom({required Endpoint endpoint}) async {
-    var mockfile = endpoint.mockFile;
-    if (endpoint.mockStrategy == null && mockfile != null) {
-      final jsonFile = await _openFileAsString(mockfile);
+    var mockName = endpoint.mockName;
+    if (endpoint.mockStrategy == null && mockName != null) {
+      final jsonFile = await _openFileAsString(mockName);
       return await _getData(jsonFile);
     }
 

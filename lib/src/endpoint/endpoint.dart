@@ -5,7 +5,7 @@ class Endpoint {
   Endpoint({
     required this.path,
     required this.method,
-    this.mockFile,
+    this.mockName,
     this.responseType = ResponseType.json,
     this.parameters,
     this.queryParameters,
@@ -16,7 +16,7 @@ class Endpoint {
 
   final String path;
   final HttpMethod method;
-  final String? mockFile;
+  final String? mockName;
   final ResponseType responseType;
   final Map<String, dynamic>? headers;
   final Map<String, dynamic>? parameters;

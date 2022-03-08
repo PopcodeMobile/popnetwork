@@ -49,7 +49,7 @@ class MockProvider {
       response = _buildResponse(data: jsonResponse);
     }
     print(
-        '--> MOCK: ${response.status} /${endpoint.path}${QueryFormatter.formatQueryParameters(parameters: endpoint.queryParameters)}');
+        '--> MOCK: ${response.status} /${endpoint.suffixPath}${QueryFormatter.formatQueryParameters(parameters: endpoint.queryParameters)}');
     print('--> ${response.data}');
     if (response.typeError != null) {
       print('--> ERROR: ${response.typeError}');

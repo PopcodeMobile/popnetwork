@@ -7,7 +7,7 @@ class PostHelper implements RequestHelper {
   Future<NetworkResponse> makeRequestHelper(
       {required Endpoint endpoint, required Dio httpProvider}) async {
     final Response<dynamic> response = await httpProvider.post<dynamic>(
-        endpoint.path,
+        endpoint.suffixPath,
         options: Options(
             headers: <String, dynamic>{
               ...httpProvider.options.headers,

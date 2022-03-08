@@ -3,7 +3,7 @@ import 'package:popwork/src/mock/mock_strategy.dart';
 
 class Endpoint {
   Endpoint({
-    required this.path,
+    this.suffixPath = '',
     this.method = HttpMethod.get,
     this.mockName,
     this.responseType = ResponseType.json,
@@ -14,7 +14,7 @@ class Endpoint {
     this.timeout,
   });
 
-  final String path;
+  final String suffixPath;
   final HttpMethod method;
   final String? mockName;
   final ResponseType responseType;

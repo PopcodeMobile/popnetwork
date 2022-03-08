@@ -32,11 +32,12 @@ class ApiManager {
     );
   }
 
-  static Future<ApiResult> request({required Endpoint endpoint}) async {
+  static Future<ApiResult> request({Endpoint? endpoint}) async {
+    final _endpoint = endpoint ?? Endpoint();
     try {
-      final NetworkResponse response = await endpoint.method.request(
+      final NetworkResponse response = await _endpoint.method.request(
         http: _networkProvider,
-        endpoint: endpoint,
+        endpoint: _endpoint,
       );
       var statusCode = response.status;
 

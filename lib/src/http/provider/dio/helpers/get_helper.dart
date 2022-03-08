@@ -9,7 +9,7 @@ class GetHelper implements RequestHelper {
     required Dio httpProvider,
   }) async {
     final Response<dynamic> response = await httpProvider.get<dynamic>(
-      endpoint.path,
+      endpoint.suffixPath,
       queryParameters: <String, dynamic>{
         ...Popwork._instance.queryParameters.parseQueryParameters(),
         ...endpoint.queryParameters.parseQueryParameters(),

@@ -55,12 +55,65 @@ with Flutter:
 
 ## Usage
 
-To set the widths and heights based on the build size of your design, use the `Popwork.config` function to set the sizes. Essa função deve ser utilizada ao iniciar a construção do seu aplicativo.
+It is possible to perform an initial configuration using the `Popwork.config` function. This function should be used when starting to build your application with some custom settings.
 
 ```dart
 void main() {
-  //set config
+  await Popwork.config(baseUrl: "https:www.example.com");
+  runApp(const MyApp());
 }
+```
+
+Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/popwork/tree/main/.github/endpoint.md)
+
+```dart
+final endpoint = Endpoint(
+  suffixPath: 'https:www.example.com'
+);
+```
+
+The `suffixPath` can be used this way or being concatenated with a base url that is configured in the execution of the application, it doesn't have to be at the beginning but it is good to avoid errors.
+
+```dart
+void main() {
+  await Popwork.config(baseUrl: "https:www.example.com");
+  runApp(const MyApp());
+}
+```
+
+---
+
+```dart
+final endpoint = Endpoint(
+  suffixPath: 'suffix/path'
+);
+```
+
+`result path: https:www.example.com/suffix/path`
+
+Some other base settings can be done like setting intectors, setting default header, etc. More details in [Popwork config Guide](https://github.com/isthaynny/popwork/tree/main/.github/popwork_config.md)
+
+---
+
+When the split settings are completed, just call the api:
+
+```dart
+final result = await ApiManager.request();
+
+```
+
+or
+
+```dart
+
+final endpoint = Endpoint(
+  suffixPath: 'suffix/path'
+);
+
+final result = await ApiManager.request(
+  endpoint: endpoint,
+);
+
 ```
 
 
@@ -74,7 +127,7 @@ For contributes:
 - Commit your changes: `git commit -m 'feat: my new feature'`;
 - Push to your branch: `git push origin my-feature`.
 - Open a pull request for your code to be evaluated.
-- For more information visit the [Contribution Guide](https://github.com/Sthaynny/popwork/blob/main/.github/contributing.md)
+- For more information visit the [Contribution Guide](https://github.com/isthaynny/popwork/tree/main/.github/contributing.md)
 
 To help maintain the chosen pattern we also create a file which is called before every commit. This file will format and pinpoint (if present) errors in the codestyle of your code. To enable this you must first copy it to git's hooks folder. If you are developing on macOS, go to the root of the project and run the command below:
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:popwork/network.dart';
+import 'package:popwork/popwork.dart';
 import 'package:popwork/src/endpoint/endpoint.dart';
 
 class MockJsonFile {

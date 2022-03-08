@@ -7,6 +7,7 @@ import 'package:popwork/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:popwork/src/http/provider/dio/helpers/response_type_dio_helper.dart';
 import 'package:popwork/src/http/ssl_pinning/ssl_pinning.dart';
 import 'package:popwork/src/response/network_response.dart';
+import 'package:popwork/src/response/states/apiError/mapped_api_error.dart';
 import 'package:popwork/src/util/query_formatter.dart';
 
 part 'http/provider/dio/helpers/delete_helper.dart';
@@ -28,10 +29,13 @@ class Popwork {
   String pathMock = '';
   SSLPinning? _pinning;
   Map<String, dynamic>? queryParameters;
+  MappedApiError? mappedApiError;
   Dio? dio;
 
   static String get pathMocks => _instance.pathMock;
   static Dio get dioCreator => _instance.dio ?? Dio();
+  static MappedApiError get mapApiError =>
+      _instance.mappedApiError ?? MappedApiErrorDefault();
 
   ///
   /// Function responsible for starting Popwork
@@ -43,6 +47,7 @@ class Popwork {
     SSLPinning? pinning,
     List<Interceptor>? interceptors,
     Map<String, dynamic>? queryParameters,
+    MappedApiError? mappedApiError,
   }) async {
     _instance = Popwork._()
       ..headers = headers
@@ -66,7 +71,7 @@ class Popwork {
     await _instance._pinning?.pinningCertificate(
       httpClientAdapter: dioCreate.httpClientAdapter,
     );
-
+    _instance.mappedApiError = mappedApiError;
     _instance.dio = dioCreate;
   }
 }

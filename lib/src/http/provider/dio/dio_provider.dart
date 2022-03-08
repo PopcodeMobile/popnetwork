@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:popwork/network.dart';
+import 'package:popwork/popwork.dart';
 import 'package:popwork/src/endpoint/endpoint.dart';
 import 'package:popwork/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:popwork/src/http/provider/network_provider.dart';

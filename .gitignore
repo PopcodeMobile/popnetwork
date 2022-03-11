@@ -9,6 +9,10 @@
 # Files for the ART/Dalvik VM
 *.dex
 
+## Other
+.fvm
+**/settings.json
+
 # Java class files
 *.class
 

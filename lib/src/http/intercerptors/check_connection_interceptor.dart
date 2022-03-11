@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:popwork/src/http/obsevers/network_error_observable/network_error_observable.dart';
-import 'package:popwork/src/http/obsevers/network_error_observable/network_error_type.dart';
-import 'package:popwork/src/internet_connection_checker/internet_connection_checker.dart';
+import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_observable.dart';
+import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
+import 'package:pop_network/src/internet_connection_checker/internet_connection_checker.dart';
 
 class CheckConnectionInterceptor extends Interceptor {
   CheckConnectionInterceptor({

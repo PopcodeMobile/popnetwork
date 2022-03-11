@@ -1,4 +1,4 @@
-import 'package:popwork/src/http/timeout_config.dart';
+import 'package:pop_network/src/http/timeout_config.dart';
 
 class HttpConfig {
   /// conection and response timeout in secunds

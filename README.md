@@ -40,7 +40,7 @@ Add this to your package's pubspec.yaml file:
 
 ```
   dependencies:
-       popwork: ^0.0.1
+       pop_network: ^0.0.1
 ```
 
 
@@ -55,16 +55,16 @@ with Flutter:
 
 ## Usage
 
-It is possible to perform an initial configuration using the `Popwork.config` function. This function should be used when starting to build your application with some custom settings.
+It is possible to perform an initial configuration using the `pop_network.config` function. This function should be used when starting to build your application with some custom settings.
 
 ```dart
 void main() {
-  await Popwork.config(baseUrl: "https:www.example.com");
+  await pop_network.config(baseUrl: "https:www.example.com");
   runApp(const MyApp());
 }
 ```
 
-Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/popwork/blob/main/docs//endpoint.md)
+Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/pop_network/blob/main/docs//endpoint.md)
 
 ```dart
 final endpoint = Endpoint(
@@ -76,7 +76,7 @@ The `suffixPath` can be used this way or being concatenated with a base url that
 
 ```dart
 void main() {
-  await Popwork.config(baseUrl: "https:www.example.com");
+  await pop_network.config(baseUrl: "https:www.example.com");
   runApp(const MyApp());
 }
 ```
@@ -91,7 +91,7 @@ final endpoint = Endpoint(
 
 `result path: https:www.example.com/suffix/path`
 
-Some other base settings can be done like setting intectors, setting default header, etc. More details in [Popwork config Guide](https://github.com/isthaynny/popwork/blob/main/docs/popwork_config.md)
+Some other base settings can be done like setting intectors, setting default header, etc. More details in [pop_network config Guide](https://github.com/isthaynny/pop_network/blob/main/docs/pop_network_config.md)
 
 ---
 
@@ -120,11 +120,11 @@ If you want to see a usage in a simple way, go to `/example` folder.
 
 ## Documentation
 
-- [PopWork Config](https://github.com/isthaynny/popwork/blob/main/docs/popwork_config.md)
-- [Enpoint](https://github.com/isthaynny/popwork/blob/main/docs/endpoint.md);
-- [Working with Mocked Requests](https://github.com/isthaynny/popwork/blob/main/docs/mock.md)
-- [Custom error mapping](https://github.com/isthaynny/popwork/blob/main/docs/mapped_api_error.md)
-- [Raw response notifier](https://github.com/isthaynny/popwork/blob/main/docs/raw_response_notifier.md)
+- [pop_network Config](https://github.com/isthaynny/pop_network/blob/main/docs/pop_network_config.md)
+- [Enpoint](https://github.com/isthaynny/pop_network/blob/main/docs/endpoint.md);
+- [Working with Mocked Requests](https://github.com/isthaynny/pop_network/blob/main/docs/mock.md)
+- [Custom error mapping](https://github.com/isthaynny/pop_network/blob/main/docs/mapped_api_error.md)
+- [Raw response notifier](https://github.com/isthaynny/pop_network/blob/main/docs/raw_response_notifier.md)
 
 
 ## Additional information
@@ -136,7 +136,7 @@ For contributes:
 - Commit your changes: `git commit -m 'feat: my new feature'`;
 - Push to your branch: `git push origin my-feature`.
 - Open a pull request for your code to be evaluated.
-- For more information visit the [Contribution Guide](https://github.com/isthaynny/popwork/tree/main/.github/contributing.md)
+- For more information visit the [Contribution Guide](https://github.com/isthaynny/pop_network/tree/main/.github/contributing.md)
 
 To help maintain the chosen pattern we also create a file which is called before every commit. This file will format and pinpoint (if present) errors in the codestyle of your code. To enable this you must first copy it to git's hooks folder. If you are developing on macOS, go to the root of the project and run the command below:
 

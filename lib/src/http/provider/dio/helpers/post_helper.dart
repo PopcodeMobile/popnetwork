@@ -1,4 +1,4 @@
-part of '../../../../popwork.dart';
+part of '../../../../network.dart';
 
 class PostHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
@@ -19,7 +19,7 @@ class PostHelper implements RequestHelper {
             responseType:
                 _contentTypeHelper.getDioResponseType(endpoint.responseType)),
         queryParameters: <String, dynamic>{
-          ...Popwork._instance.queryParameters.parseQueryParameters(),
+          ...Network._instance.queryParameters.parseQueryParameters(),
           ...endpoint.queryParameters.parseQueryParameters(),
         },
         data: endpoint.parameters);

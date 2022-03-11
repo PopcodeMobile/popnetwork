@@ -1,11 +1,11 @@
-import 'package:popwork/src/endpoint/endpoint.dart';
-import 'package:popwork/src/http/provider/network_provider.dart';
-import 'package:popwork/src/methods/delete.dart';
-import 'package:popwork/src/methods/get.dart';
-import 'package:popwork/src/methods/patch.dart';
-import 'package:popwork/src/methods/post.dart';
-import 'package:popwork/src/methods/put.dart';
-import 'package:popwork/src/response/network_response.dart';
+import 'package:pop_network/src/endpoint/endpoint.dart';
+import 'package:pop_network/src/http/provider/network_provider.dart';
+import 'package:pop_network/src/methods/delete.dart';
+import 'package:pop_network/src/methods/get.dart';
+import 'package:pop_network/src/methods/patch.dart';
+import 'package:pop_network/src/methods/post.dart';
+import 'package:pop_network/src/methods/put.dart';
+import 'package:pop_network/src/response/network_response.dart';
 
 ///The existing methods in `HttpMethod` are *.delete*, *.put*, *.patch*, *.post* and *.get*.
 enum HttpMethod {

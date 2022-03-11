@@ -6,7 +6,7 @@ export 'src/methods/delete.dart';
 export 'src/methods/get.dart';
 export 'src/methods/http_method.dart' show HttpMethod;
 export 'src/mock/mock.dart';
-export 'src/popwork.dart';
+export 'src/network.dart';
 export 'src/raw_response_notifier/raw_response.dart';
 export 'src/raw_response_notifier/raw_response_notifiable.dart';
 export 'src/raw_response_notifier/raw_response_notifier.dart';

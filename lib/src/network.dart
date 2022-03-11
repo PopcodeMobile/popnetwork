@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:popwork/src/endpoint/endpoint.dart';
-import 'package:popwork/src/http/http_config.dart';
-import 'package:popwork/src/http/provider/dio/helpers/request_helper.dart';
-import 'package:popwork/src/http/provider/dio/helpers/response_type_dio_helper.dart';
-import 'package:popwork/src/http/ssl_pinning/ssl_pinning.dart';
-import 'package:popwork/src/response/network_response.dart';
-import 'package:popwork/src/response/states/apiError/mapped_api_error.dart';
-import 'package:popwork/src/util/query_formatter.dart';
+import 'package:pop_network/src/endpoint/endpoint.dart';
+import 'package:pop_network/src/http/http_config.dart';
+import 'package:pop_network/src/http/provider/dio/helpers/request_helper.dart';
+import 'package:pop_network/src/http/provider/dio/helpers/response_type_dio_helper.dart';
+import 'package:pop_network/src/http/ssl_pinning/ssl_pinning.dart';
+import 'package:pop_network/src/response/network_response.dart';
+import 'package:pop_network/src/response/states/apiError/mapped_api_error.dart';
+import 'package:pop_network/src/util/query_formatter.dart';
 
 part 'http/provider/dio/helpers/delete_helper.dart';
 part 'http/provider/dio/helpers/get_helper.dart';
@@ -16,10 +16,10 @@ part 'http/provider/dio/helpers/patch_helper.dart';
 part 'http/provider/dio/helpers/post_helper.dart';
 part 'http/provider/dio/helpers/put_helper.dart';
 
-class Popwork {
-  Popwork._();
-  static late Popwork _instance;
-  factory Popwork() => _instance;
+class Network {
+  Network._();
+  static late Network _instance;
+  factory Network() => _instance;
 
   /// Variables that can be initialized when starting the Application.
 
@@ -38,9 +38,9 @@ class Popwork {
       _instance.mappedApiError ?? MappedApiErrorDefault();
 
   ///
-  /// Function responsible for starting Popwork
-  /// 
-  /// 
+  /// Function responsible for starting pop_network
+  ///
+  ///
 
   static Future<void> config({
     String? baseUrl,
@@ -51,7 +51,7 @@ class Popwork {
     Map<String, dynamic>? queryParameters,
     MappedApiError? mappedApiError,
   }) async {
-    _instance = Popwork._()
+    _instance = Network._()
       ..headers = headers
       ..pathMock = pathMock ?? _instance.pathMock
       ..baseUrl = baseUrl ?? ''

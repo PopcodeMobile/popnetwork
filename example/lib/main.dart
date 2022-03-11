@@ -1,9 +1,9 @@
 import 'package:exemple/data.dart';
 import 'package:flutter/material.dart';
-import 'package:popwork/popwork.dart';
+import 'package:pop_network/pop_network.dart';
 
 Future<void> main() async {
-  await Popwork.config(baseUrl: "https://pokeapi.co/api/v2/pokemon/");
+  await Network.config(baseUrl: "https://pokeapi.co/api/v2/pokemon/");
   runApp(const MyApp());
 }
 

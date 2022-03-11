@@ -1,22 +1,22 @@
 import 'dart:async';
 
-import 'package:popwork/src/endpoint/endpoint.dart';
-import 'package:popwork/src/http/provider/dio/dio_provider.dart';
-import 'package:popwork/src/http/provider/network_provider.dart';
-import 'package:popwork/src/methods/http_method.dart';
-import 'package:popwork/src/popwork.dart';
-import 'package:popwork/src/raw_response_notifier/raw_response_notifiable.dart';
-import 'package:popwork/src/raw_response_notifier/raw_response_notifier.dart';
-import 'package:popwork/src/response/api_result.dart';
-import 'package:popwork/src/response/network_response.dart';
-import 'package:popwork/src/response/states/apiError/api_error.dart';
-import 'package:popwork/src/response/states/internal_error.dart';
-import 'package:popwork/src/response/states/success.dart';
+import 'package:pop_network/src/endpoint/endpoint.dart';
+import 'package:pop_network/src/http/provider/dio/dio_provider.dart';
+import 'package:pop_network/src/http/provider/network_provider.dart';
+import 'package:pop_network/src/methods/http_method.dart';
+import 'package:pop_network/src/network.dart';
+import 'package:pop_network/src/raw_response_notifier/raw_response_notifiable.dart';
+import 'package:pop_network/src/raw_response_notifier/raw_response_notifier.dart';
+import 'package:pop_network/src/response/api_result.dart';
+import 'package:pop_network/src/response/network_response.dart';
+import 'package:pop_network/src/response/states/apiError/api_error.dart';
+import 'package:pop_network/src/response/states/internal_error.dart';
+import 'package:pop_network/src/response/states/success.dart';
 
 ///
 ///Responsible for initiating the request for your api
 ///To use it, it is only necessary to call the `.request` function or pass the
-///endpoint as a parameter. To learn more about the endpoint settings [click here](https://github.com/isthaynny/popwork/blob/main/docs/endpoint.md)
+///endpoint as a parameter. To learn more about the endpoint settings [click here](https://github.com/isthaynny/pop_network/blob/main/docs/endpoint.md)
 class ApiManager {
   static final NetworkProvider _networkProvider = DioProvider();
   static final RawResponseNotifier _rawResponseNotifier = RawResponseNotifier();
@@ -31,7 +31,7 @@ class ApiManager {
 
   static InternalError _makeInternalError() {
     return InternalError(
-      message: Popwork.mapApiError.messageDefault,
+      message: Network.mapApiError.messageDefault,
       statusCode: 520,
     );
   }
@@ -52,7 +52,7 @@ class ApiManager {
       }
 
       _rawResponseNotifier.notify(response);
-      final mappedErrors = Popwork.mapApiError.mappingError(response.data);
+      final mappedErrors = Network.mapApiError.mappingError(response.data);
 
       return Future<ApiError>.value(ApiError(
         error: mappedErrors,

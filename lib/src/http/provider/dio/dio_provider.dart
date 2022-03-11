@@ -1,17 +1,14 @@
 import 'package:dio/dio.dart';
-import 'package:popwork/popwork.dart';
-import 'package:popwork/src/endpoint/endpoint.dart';
-import 'package:popwork/src/http/provider/dio/helpers/request_helper.dart';
-import 'package:popwork/src/http/provider/network_provider.dart';
-import 'package:popwork/src/popwork.dart';
-import 'package:popwork/src/response/network_response.dart';
+import 'package:pop_network/pop_network.dart';
+import 'package:pop_network/src/http/provider/dio/helpers/request_helper.dart';
+import 'package:pop_network/src/http/provider/network_provider.dart';
 
 class DioProvider implements NetworkProvider {
   Future<NetworkResponse> _safeRequest({
     required RequestHelper requestHelper,
     required Endpoint endpoint,
   }) async {
-    Dio _provider = Popwork.dioCreator
+    Dio _provider = Network.dioCreator
       ..options.connectTimeout =
           endpoint.timeout ?? HttpConfig.timeoutConfig.connectionTimeout;
 

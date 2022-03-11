@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:popwork/src/http/obsevers/network_error_observable/network_error_type.dart';
+import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
 
 abstract class NetworkErrorObservable {
   void onNetworkError(NetworkErrorType errorType);

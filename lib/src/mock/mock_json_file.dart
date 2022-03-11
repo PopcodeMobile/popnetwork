@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:popwork/popwork.dart';
-import 'package:popwork/src/endpoint/endpoint.dart';
+import 'package:pop_network/src/endpoint/endpoint.dart';
+import 'package:pop_network/src/network.dart';
 
 class MockJsonFile {
   static Future<dynamic> getDataFrom({required Endpoint endpoint}) async {
@@ -20,7 +20,7 @@ class MockJsonFile {
   }
 
   static Future<String> _openFileAsString(String nameFile) async {
-    return await rootBundle.loadString('${Popwork.pathMocks}/$nameFile.json');
+    return await rootBundle.loadString('${Network.pathMocks}/$nameFile.json');
   }
 
   static Future<dynamic> _getData(String jsonFile) async {

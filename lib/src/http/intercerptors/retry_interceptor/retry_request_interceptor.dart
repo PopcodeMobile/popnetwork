@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:popwork/src/http/intercerptors/retry_interceptor/i_rotas_com_retry.dart';
-import 'package:popwork/src/http/intercerptors/utils/interceptor_utils.dart';
-import 'package:popwork/src/http/obsevers/network_error_observable/network_error_observable.dart';
-import 'package:popwork/src/http/obsevers/network_error_observable/network_error_type.dart';
+import 'package:pop_network/src/http/intercerptors/retry_interceptor/i_rotas_com_retry.dart';
+import 'package:pop_network/src/http/intercerptors/utils/interceptor_utils.dart';
+import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_observable.dart';
+import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
 
 class RetryRequestInterceptor extends Interceptor {
   RetryRequestInterceptor({

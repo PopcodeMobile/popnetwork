@@ -1,5 +1,5 @@
-import 'package:popwork/src/response/api_result.dart';
-import 'package:popwork/src/response/states/apiError/mapped_api_error.dart';
+import 'package:pop_network/src/response/api_result.dart';
+import 'package:pop_network/src/response/states/apiError/mapped_api_error.dart';
 
 class ApiError implements ApiResult {
   ApiError({

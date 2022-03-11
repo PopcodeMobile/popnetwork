@@ -1,4 +1,4 @@
-part of '../../../../popwork.dart';
+part of '../../../../network.dart';
 
 class PatchHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
@@ -11,7 +11,7 @@ class PatchHelper implements RequestHelper {
     final Response<dynamic> response =
         await httpProvider.patch<dynamic>(endpoint.suffixPath,
             queryParameters: <String, dynamic>{
-              ...Popwork._instance.queryParameters.parseQueryParameters(),
+              ...Network._instance.queryParameters.parseQueryParameters(),
               ...endpoint.queryParameters.parseQueryParameters(),
             },
             options: Options(

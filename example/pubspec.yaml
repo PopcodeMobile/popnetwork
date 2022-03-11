@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  popwork:
+  pop_network:
     path: ../
 
 

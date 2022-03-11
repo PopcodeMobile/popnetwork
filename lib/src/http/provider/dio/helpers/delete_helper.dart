@@ -1,4 +1,4 @@
-part of '../../../../popwork.dart';
+part of '../../../../network.dart';
 
 class DeleteHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
@@ -12,7 +12,7 @@ class DeleteHelper implements RequestHelper {
       endpoint.suffixPath,
       data: endpoint.parameters,
       queryParameters: <String, dynamic>{
-        ...Popwork._instance.queryParameters.parseQueryParameters(),
+        ...Network._instance.queryParameters.parseQueryParameters(),
         ...endpoint.queryParameters.parseQueryParameters(),
       },
       options: Options(

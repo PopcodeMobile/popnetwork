@@ -1,4 +1,4 @@
-import 'package:popwork/src/http/intercerptors/retry_interceptor/politica_retry.dart';
+import 'package:pop_network/src/http/intercerptors/retry_interceptor/politica_retry.dart';
 
 abstract class IRotasComRetry {
   bool get isVazio;

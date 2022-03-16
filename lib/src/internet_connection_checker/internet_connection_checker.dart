@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:data_connection_checker_tv/data_connection_checker.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 abstract class InternetConnectionChecker {
   Future<bool> isConnected();
@@ -11,9 +11,11 @@ abstract class InternetConnectionChecker {
 class InternetConnectionCheckerImpl implements InternetConnectionChecker {
   @override
   Future<bool> isConnected() async {
-    final dataConnectionChecker = DataConnectionChecker();
+    final Connectivity _connectivity = Connectivity();
+    final result = await _connectivity.checkConnectivity();
 
-    return await dataConnectionChecker.hasConnection;
+    return result != ConnectivityResult.bluetooth &&
+        result != ConnectivityResult.none;
   }
 
   @override

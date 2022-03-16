@@ -6,7 +6,7 @@
 
 To map the error, it will be necessary to create a class that implements the `MappedApiError<Input, Output>` interface, it will be necessary to inform the types of input and mapping sayings;
 
-exemplo
+example
 
 ```dart
 class MapCustomError implements MappedApiError<Map, dynamic>(
@@ -32,7 +32,7 @@ It is also possible to inform a standard error message, in case the application 
 To add custom settings, just pass the edited class calling the initial network configuration.
 <br>
 
-examplo
+example
 
 ```dart
 void main() {

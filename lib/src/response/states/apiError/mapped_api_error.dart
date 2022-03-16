@@ -1,5 +1,5 @@
 ///To map the error, it will be necessary to create a class that implements the `MappedApiError<Input, Output>` interface, it will be necessary to inform the types of input and mapping sayings;
-/// exemplo
+/// example
 /// ```dart
 /// class MapCustomError implements MappedApiError<Map, dynamic>(
 ///   @override

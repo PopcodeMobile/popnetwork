@@ -29,6 +29,10 @@ class MockProvider {
         typeError: DioErrorType.response,
       );
 
+  bool _validateMock(Endpoint endpoint) =>
+      endpoint.mockStrategy != null ||
+      (endpoint.mockName != null && endpoint.mockName!.isNotEmpty);
+
   Future<NetworkResponse> request({required Endpoint endpoint}) async {
     final isConnected = await connectionChecker.isConnected();
     if (!isConnected) {
@@ -36,18 +40,25 @@ class MockProvider {
           .createNotification(errorType: NetworkErrorType.noConnection);
       await connectionChecker.handleRetryWhenInternetBack();
     }
-
-    final dynamic jsonResponse = await MockJsonFile.getDataFrom(
-      endpoint: endpoint,
-    );
+    dynamic jsonResponse;
+    if (_validateMock(endpoint)) {
+      jsonResponse = await MockJsonFile.getDataFrom(
+        endpoint: endpoint,
+      );
+    }
 
     NetworkResponse response;
     final number = Random(1);
-    if (number.nextBool()) {
-      response = _buildResponseError();
+    if (_validateMock(endpoint)) {
+      if (number.nextBool()) {
+        response = _buildResponseError();
+      } else {
+        response = _buildResponse(data: jsonResponse);
+      }
     } else {
-      response = _buildResponse(data: jsonResponse);
+      response = _buildResponseError();
     }
+
     print(
         '--> MOCK: ${response.status} /${endpoint.suffixPath}${QueryFormatter.formatQueryParameters(parameters: endpoint.queryParameters)}');
     print('--> ${response.data}');

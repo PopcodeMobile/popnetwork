@@ -6,7 +6,7 @@
 
 description [...]
 
-exemplo
+example
 
 ```dart
 void main() {
@@ -20,7 +20,7 @@ description [...]
 
 <br>
 
-exemplo
+example
 
 ```dart
 void main() {

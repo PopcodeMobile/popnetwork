@@ -7,7 +7,7 @@
 Some information can be passed to configure the routes before they are called. A common configuration and method change which in robust applications will occur frequently.
 
 
-exemplo
+example
 
 ```dart
 Endpoint(

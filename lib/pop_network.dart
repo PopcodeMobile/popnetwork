@@ -9,6 +9,5 @@ export 'src/mock/mock.dart';
 export 'src/network.dart';
 export 'src/raw_response_notifier/raw_response.dart';
 export 'src/raw_response_notifier/raw_response_notifiable.dart';
-export 'src/raw_response_notifier/raw_response_notifier.dart';
 export 'src/response/response.dart';
 export 'src/util/query_formatter.dart';

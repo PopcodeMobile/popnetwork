@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:dio/dio.dart';
+import 'package:pop_network/src/connection_checker/internet_connection_checker.dart';
 import 'package:pop_network/src/endpoint/endpoint.dart';
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_observable.dart';
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
-import 'package:pop_network/src/internet_connection_checker/internet_connection_checker.dart';
 import 'package:pop_network/src/mock/mock_json_file.dart';
 import 'package:pop_network/src/response/network_response.dart';
 import 'package:pop_network/src/util/query_formatter.dart';

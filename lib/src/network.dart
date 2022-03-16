@@ -26,14 +26,14 @@ class Network {
   List<Interceptor> interceptors = [];
   Map<String, dynamic>? headers;
   String baseUrl = '';
-  String? pathMock;
+  String pathMock = 'assets/api/mock/';
   SSLPinning? _pinning;
   Map<String, dynamic>? queryParameters;
   MappedApiError? mappedApiError;
   Dio? dio;
   bool mockedEnvironment = false;
 
-  static String get pathMocks => _instance.pathMock ?? 'assets/api/mock/';
+  static String get pathMocks => _instance.pathMock;
   static Dio get dioCreator => _instance.dio ?? Dio();
   static MappedApiError get mapApiError =>
       _instance.mappedApiError ?? MappedApiErrorDefault();
@@ -56,7 +56,7 @@ class Network {
   }) async {
     _instance = Network._()
       ..headers = headers
-      ..pathMock = pathMock ?? _instance.pathMock
+      ..pathMock = pathMock ?? 'assets/api/mock/'
       ..baseUrl = baseUrl ?? ''
       .._pinning = pinning
       ..mockedEnvironment = mockedEnvironment

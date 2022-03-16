@@ -1,3 +1,4 @@
+export 'src/connection_checker/conection_checker.dart';
 export 'src/endpoint/endpoint.dart';
 export 'src/http/http.dart';
 export 'src/manager/api_manager.dart';

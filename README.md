@@ -116,6 +116,16 @@ final result = await ApiManager.requestApi(
 
 ```
 
+It is possible to check if your device is connected to the internet using `ConnectionChecker`;
+
+```dart
+final conection = await ConnectionChecker.isConnectedToInternet();
+```
+
+I see the gif of the operation below:
+
+![ConnectionChecker](https://user-images.githubusercontent.com/66264766/158685967-40743aea-21b0-447e-abb0-e248f13aa989.gif)
+
 If you want to see a usage in a simple way, go to `/example` folder.
 
 It is also possible to make the request directly to the mock file that is being mapped to the functionality with `ApiManager.requestMock`. For more information, go to the documentation of the [Mock](https://github.com/isthaynny/pop_network/blob/main/docs/mock.md).

@@ -1,3 +1,4 @@
+import 'package:exemple/conection_check.dart';
 import 'package:exemple/data.dart';
 import 'package:flutter/material.dart';
 import 'package:pop_network/pop_network.dart';
@@ -17,15 +18,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Request'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -55,7 +54,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => const ConectionCheckScreen(),
+                ));
+              },
+              icon: const Icon(Icons.connect_without_contact))
+        ],
       ),
       body: Center(
         child: SingleChildScrollView(

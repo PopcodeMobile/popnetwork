@@ -31,11 +31,13 @@ class Network {
   Map<String, dynamic>? queryParameters;
   MappedApiError? mappedApiError;
   Dio? dio;
+  bool mockedEnvironment = false;
 
   static String get pathMocks => _instance.pathMock ?? 'assets/api/mock/';
   static Dio get dioCreator => _instance.dio ?? Dio();
   static MappedApiError get mapApiError =>
       _instance.mappedApiError ?? MappedApiErrorDefault();
+  static bool get isMock => _instance.mockedEnvironment;
 
   ///
   /// Function responsible for starting pop_network
@@ -50,12 +52,14 @@ class Network {
     List<Interceptor>? interceptors,
     Map<String, dynamic>? queryParameters,
     MappedApiError? mappedApiError,
+    bool mockedEnvironment = false,
   }) async {
     _instance = Network._()
       ..headers = headers
       ..pathMock = pathMock ?? _instance.pathMock
       ..baseUrl = baseUrl ?? ''
       .._pinning = pinning
+      ..mockedEnvironment = mockedEnvironment
       ..queryParameters = queryParameters;
 
     final dioCreate = Dio()

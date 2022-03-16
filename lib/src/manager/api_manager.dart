@@ -4,6 +4,7 @@ import 'package:pop_network/src/endpoint/endpoint.dart';
 import 'package:pop_network/src/http/provider/dio/dio_provider.dart';
 import 'package:pop_network/src/http/provider/network_provider.dart';
 import 'package:pop_network/src/methods/http_method.dart';
+import 'package:pop_network/src/mock/mock_provider.dart';
 import 'package:pop_network/src/network.dart';
 import 'package:pop_network/src/raw_response_notifier/raw_response_notifiable.dart';
 import 'package:pop_network/src/raw_response_notifier/raw_response_notifier.dart';
@@ -36,7 +37,7 @@ class ApiManager {
     );
   }
 
-  static Future<ApiResult> request({Endpoint? endpoint}) async {
+  static Future<ApiResult> _request({Endpoint? endpoint}) async {
     final _endpoint = endpoint ?? Endpoint();
     try {
       final NetworkResponse response = await _endpoint.method.request(
@@ -63,5 +64,17 @@ class ApiManager {
     } catch (_) {
       return _makeInternalError();
     }
+  }
+
+  static Future<ApiResult> requestApi({Endpoint? endpoint}) {
+    if (Network.isMock) {
+      return requestMock(endpoint: endpoint);
+    }
+    return _request(endpoint: endpoint);
+  }
+
+  static Future<ApiResult> requestMock({Endpoint? endpoint}) {
+    final mock = MockProvider();
+    return mock.request(endpoint: endpoint);
   }
 }

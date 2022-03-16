@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:pop_network/src/response/api_result.dart';
 
-class NetworkResponse {
+class NetworkResponse implements ApiResult {
   NetworkResponse({
     this.data,
     this.status,

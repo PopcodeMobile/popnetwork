@@ -33,7 +33,8 @@ class MockProvider {
       endpoint.mockStrategy != null ||
       (endpoint.mockName != null && endpoint.mockName!.isNotEmpty);
 
-  Future<NetworkResponse> request({required Endpoint endpoint}) async {
+  Future<NetworkResponse> request({Endpoint? endpoint}) async {
+    final _endpoint = endpoint ?? Endpoint();
     final isConnected = await connectionChecker.isConnected();
     if (!isConnected) {
       NetworkErrorObserver.instance
@@ -41,15 +42,15 @@ class MockProvider {
       await connectionChecker.handleRetryWhenInternetBack();
     }
     dynamic jsonResponse;
-    if (_validateMock(endpoint)) {
+    if (_validateMock(_endpoint)) {
       jsonResponse = await MockJsonFile.getDataFrom(
-        endpoint: endpoint,
+        endpoint: _endpoint,
       );
     }
 
     NetworkResponse response;
     final number = Random(1);
-    if (_validateMock(endpoint)) {
+    if (_validateMock(_endpoint)) {
       if (number.nextBool()) {
         response = _buildResponseError();
       } else {
@@ -60,7 +61,7 @@ class MockProvider {
     }
 
     print(
-        '--> MOCK: ${response.status} /${endpoint.suffixPath}${QueryFormatter.formatQueryParameters(parameters: endpoint.queryParameters)}');
+        '--> MOCK: ${response.status} /${_endpoint.suffixPath}${QueryFormatter.formatQueryParameters(parameters: _endpoint.queryParameters)}');
     print('--> ${response.data}');
     if (response.typeError != null) {
       print('--> ERROR: ${response.typeError}');

@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Pokemon> list = [];
 
   void requestApi() {
-    ApiManager.request().then((value) {
+    ApiManager.requestApi().then((value) {
       if (value is Success) {
         final listMaps = value.data['results'] as List;
         final listGenerate = List.generate(

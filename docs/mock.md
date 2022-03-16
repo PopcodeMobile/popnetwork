@@ -65,7 +65,7 @@ final Endpoint endpoint = Endpoint(
   mockStrategy: MockCustomStrategy(),
 );
 
-return await ApiManager.request(
+return await ApiManager.requestApi(
   endpoint: endpoint,
 );
 
@@ -82,5 +82,11 @@ class MockCustomStrategy implements MockStrategy {
   }
 }
 ```
+It is possible to make the requests directly in the mock used:
+
+```dart
+ApiManager.requestMock(EndPoint());
+```
+
 ---
 

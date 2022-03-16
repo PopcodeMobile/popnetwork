@@ -110,7 +110,7 @@ final endpoint = Endpoint(
   suffixPath: 'suffix/path'
 );
 
-final result = await ApiManager.request(
+final result = await ApiManager.requestApi(
   endpoint: endpoint,
 );
 

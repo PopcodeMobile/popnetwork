@@ -32,7 +32,7 @@ NOTE: It is necessary to set the assets of *pubspec.yaml*.
 <br>
 <br>
 
-To inform the file that will be returned, it is necessary to pass the *name* through `EndPoit` before making the call with `ApiManeger.request`.
+To inform the file that will be returned, it is necessary to pass the *name* through `EndPoit` before making the call with `ApiManeger.requestApi`.
 example
 
 ```dart
@@ -41,7 +41,7 @@ ApiResult getApi() {
       mockFile: 'mock_name',
     );
 
-    return await ApiManager.request(endpoint: endpoint);
+    return await ApiManager.requestApi(endpoint: endpoint);
 }
 ```
 
@@ -49,7 +49,7 @@ or
 
 ```dart
 ApiResult getApi() {
-    return await ApiManager.request(endpoint: Endpoint(
+    return await ApiManager.requestApi(endpoint: Endpoint(
       mockFile: 'mock_name',
     ));
 }

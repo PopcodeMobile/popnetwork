@@ -462,8 +462,3 @@ android/fastlane/report.xml
 fastlane/report.xml
 
 .flutter-plugins-dependencies
-
-# B+ Symbols
-ios_dart_symbols.json
-android_dart_symbols.json
-test/qr_pix.jpg

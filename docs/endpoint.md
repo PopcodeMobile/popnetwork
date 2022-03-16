@@ -10,9 +10,7 @@ Some information can be passed to configure the routes before they are called. A
 example
 
 ```dart
-Endpoint(
-	method: HttpMethod.post
-)
+Endpoint(method: HttpMethod.post);
 ```
 
 The existing methods in `HttpMethod` are *.delete*, *.put*, *.patch*, *.post* and *.get*.
@@ -23,15 +21,11 @@ The existing methods in `HttpMethod` are *.delete*, *.put*, *.patch*, *.post* an
 It is possible to add a route that will be concatenated with its base route in each request, it is not necessary to put a slash at the beginning of the suffixPath.
 
 ```dart
-Endpoint(
-	suffixPath: 'path/custom'
-)
+Endpoint(suffixPath: 'path/custom');
 ```
 Or you can pass the full route in each request as needed.
 ```dart
-Endpoint(
-	suffixPath: 'https://api.example.ht'
-)
+Endpoint(suffixPath: 'https://api.example.ht');
 ```
 <br>
 
@@ -44,14 +38,14 @@ There are other settings that can be made, follow the example below in more deta
 <br>
 
 ```dart
-Endpoint(
+Endpoint(;
   responseType: ResponseType.bytes,
   parameters: <String, dynamic>{"key": value},
   queryParameters: <String, dynamic>{"key": value},
   headers: <String, dynamic>{"key": value},
   mockStrategy: MockStrategy(),
   timeout: 30,
-)
+);
 ```
 - `responseType`: type of request that will be returned by the parent;
 - `parametrs`: request data passed in the route;

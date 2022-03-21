@@ -17,7 +17,7 @@ import 'package:pop_network/src/response/states/success.dart';
 ///
 ///Responsible for initiating the request for your api
 ///To use it, it is only necessary to call the `.request` function or pass the
-///endpoint as a parameter. To learn more about the endpoint settings [click here](https://github.com/isthaynny/pop_network/blob/main/docs/endpoint.md)
+///endpoint as a parameter. To learn more about the endpoint settings [click here](https://github.com/isthaynny/pop_network/blob/main/doc/endpoint.md)
 class ApiManager {
   static final NetworkProvider _networkProvider = DioProvider();
   static final RawResponseNotifier _rawResponseNotifier = RawResponseNotifier();

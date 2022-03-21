@@ -64,7 +64,7 @@ void main() {
 }
 ```
 
-Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/pop_network/blob/main/docs//endpoint.md)
+Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/pop_network/blob/main/doc//endpoint.md)
 
 ```dart
 final endpoint = Endpoint(
@@ -91,7 +91,7 @@ final endpoint = Endpoint(
 
 `result path: https:www.example.com/suffix/path`
 
-Some other base settings can be done like setting intectors, setting default header, etc. More details in [pop_network config Guide](https://github.com/isthaynny/pop_network/blob/main/docs/pop_network_config.md)
+Some other base settings can be done like setting intectors, setting default header, etc. More details in [pop_network config Guide](https://github.com/isthaynny/pop_network/blob/main/doc/pop_network_config.md)
 
 ---
 
@@ -128,15 +128,15 @@ I see the gif of the operation below:
 
 If you want to see a usage in a simple way, go to `/example` folder.
 
-It is also possible to make the request directly to the mock file that is being mapped to the functionality with `ApiManager.requestMock`. For more information, go to the documentation of the [Mock](https://github.com/isthaynny/pop_network/blob/main/docs/mock.md).
+It is also possible to make the request directly to the mock file that is being mapped to the functionality with `ApiManager.requestMock`. For more information, go to the documentation of the [Mock](https://github.com/isthaynny/pop_network/blob/main/doc/mock.md).
 
 ## Documentation
 
-- [pop_network Config](https://github.com/isthaynny/pop_network/blob/main/docs/pop_network_config.md)
-- [Enpoint](https://github.com/isthaynny/pop_network/blob/main/docs/endpoint.md);
-- [Working with Mocked Requests](https://github.com/isthaynny/pop_network/blob/main/docs/mock.md)
-- [Custom error mapping](https://github.com/isthaynny/pop_network/blob/main/docs/mapped_api_error.md)
-- [Raw response notifier](https://github.com/isthaynny/pop_network/blob/main/docs/raw_response_notifier.md)
+- [pop_network Config](https://github.com/isthaynny/pop_network/blob/main/doc/pop_network_config.md)
+- [Enpoint](https://github.com/isthaynny/pop_network/blob/main/doc/endpoint.md);
+- [Working with Mocked Requests](https://github.com/isthaynny/pop_network/blob/main/doc/mock.md)
+- [Custom error mapping](https://github.com/isthaynny/pop_network/blob/main/doc/mapped_api_error.md)
+- [Raw response notifier](https://github.com/isthaynny/pop_network/blob/main/doc/raw_response_notifier.md)
 
 
 ## Additional information

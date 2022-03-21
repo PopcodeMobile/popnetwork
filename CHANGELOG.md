@@ -18,3 +18,5 @@
 ## [0.0.3] - Update documentation
 
 - Update links to documentation
+
+## [0.0.4] - more version

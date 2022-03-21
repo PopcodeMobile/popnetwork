@@ -51,5 +51,5 @@ Endpoint(;
 - `parametrs`: request data passed in the route;
 - `queryParameters`: request data as a parameter in the URL;
 - `headers`: It is a validator, a unique string identifying the version of the resource.
-- `mockStrategy`: strategy to vary the rock according to who is using the package. For more information [Mock Guide](https://github.com/isthaynny/pop_network/blob/main/doc/mock.md);
+- `mockStrategy`: strategy to vary the rock according to who is using the package. For more information [Mock Guide](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/mock.md);
 - `timeout`: Time the app will wait for the request response;

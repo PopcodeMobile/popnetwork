@@ -14,3 +14,7 @@
 
 - Create in Retry policy;
 - Adjustment in Retry policy;
+
+## [0.0.2] - Update documentation
+
+- Update links to documentation

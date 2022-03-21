@@ -64,7 +64,7 @@ void main() {
 }
 ```
 
-Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/isthaynny/pop_network/blob/main/doc//endpoint.md)
+Where you can add a base url or just not configure and pass the url in `Enpoint`. For more information visit the [Contribution Guide](https://github.com/PopcodeMobile/popnetwork/blob/main/doc//endpoint.md)
 
 ```dart
 final endpoint = Endpoint(
@@ -91,7 +91,7 @@ final endpoint = Endpoint(
 
 `result path: https:www.example.com/suffix/path`
 
-Some other base settings can be done like setting intectors, setting default header, etc. More details in [pop_network config Guide](https://github.com/isthaynny/pop_network/blob/main/doc/pop_network_config.md)
+Some other base settings can be done like setting intectors, setting default header, etc. More details in [pop_network config Guide](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/pop_network_config.md)
 
 ---
 
@@ -128,15 +128,15 @@ I see the gif of the operation below:
 
 If you want to see a usage in a simple way, go to `/example` folder.
 
-It is also possible to make the request directly to the mock file that is being mapped to the functionality with `ApiManager.requestMock`. For more information, go to the documentation of the [Mock](https://github.com/isthaynny/pop_network/blob/main/doc/mock.md).
+It is also possible to make the request directly to the mock file that is being mapped to the functionality with `ApiManager.requestMock`. For more information, go to the documentation of the [Mock](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/mock.md).
 
 ## Documentation
 
-- [Network Config](https://github.com/isthaynny/pop_network/blob/main/doc/pop_network_config.md)
-- [Enpoint](https://github.com/isthaynny/pop_network/blob/main/doc/endpoint.md);
-- [Working with Mocked Requests](https://github.com/isthaynny/pop_network/blob/main/doc/mock.md)
-- [Custom error mapping](https://github.com/isthaynny/pop_network/blob/main/doc/mapped_api_error.md)
-- [Raw response notifier](https://github.com/isthaynny/pop_network/blob/main/doc/raw_response_notifier.md)
+- [Network Config](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/pop_network_config.md)
+- [Enpoint](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/endpoint.md);
+- [Working with Mocked Requests](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/mock.md)
+- [Custom error mapping](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/mapped_api_error.md)
+- [Raw response notifier](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/raw_response_notifier.md)
 
 
 ## Additional information
@@ -148,7 +148,7 @@ For contributes:
 - Commit your changes: `git commit -m 'feat: my new feature'`;
 - Push to your branch: `git push origin my-feature`.
 - Open a pull request for your code to be evaluated.
-- For more information visit the [Contribution Guide](https://github.com/isthaynny/pop_network/tree/main/.github/contributing.md)
+- For more information visit the [Contribution Guide](https://github.com/PopcodeMobile/popnetwork/tree/main/.github/contributing.md)
 
 To help maintain the chosen pattern we also create a file which is called before every commit. This file will format and pinpoint (if present) errors in the codestyle of your code. To enable this you must first copy it to git's hooks folder. If you are developing on macOS, go to the root of the project and run the command below:
 

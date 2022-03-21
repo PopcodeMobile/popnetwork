@@ -24,3 +24,4 @@
 - Apply flutter format
 - Add documentation to package;
 - Leaving the public repository for contributions;
+- Update links to documentation

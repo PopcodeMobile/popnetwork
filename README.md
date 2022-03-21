@@ -132,7 +132,7 @@ It is also possible to make the request directly to the mock file that is being 
 
 ## Documentation
 
-- [pop_network Config](https://github.com/isthaynny/pop_network/blob/main/doc/pop_network_config.md)
+- [Network Config](https://github.com/isthaynny/pop_network/blob/main/doc/pop_network_config.md)
 - [Enpoint](https://github.com/isthaynny/pop_network/blob/main/doc/endpoint.md);
 - [Working with Mocked Requests](https://github.com/isthaynny/pop_network/blob/main/doc/mock.md)
 - [Custom error mapping](https://github.com/isthaynny/pop_network/blob/main/doc/mapped_api_error.md)

@@ -40,7 +40,7 @@ Add this to your package's pubspec.yaml file:
 
 ```
   dependencies:
-       pop_network: ^0.0.1
+       pop_network: any
 ```
 
 

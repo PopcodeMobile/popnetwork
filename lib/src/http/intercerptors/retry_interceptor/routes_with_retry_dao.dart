@@ -1,12 +1,12 @@
-import 'package:pop_network/src/http/intercerptors/retry_interceptor/i_rotas_com_retry.dart';
+import 'package:pop_network/src/http/intercerptors/retry_interceptor/i_routes_with_retry.dart';
 import 'package:pop_network/src/http/intercerptors/retry_interceptor/politica_retry.dart';
 
-class RotasComRetryDAO implements IRotasComRetry {
-  RotasComRetryDAO._();
+class RoutesWithRetryDAO implements IRoutesWithRetry {
+  RoutesWithRetryDAO._();
 
-  static final RotasComRetryDAO _instance = RotasComRetryDAO._();
+  static final RoutesWithRetryDAO _instance = RoutesWithRetryDAO._();
 
-  static RotasComRetryDAO get instance => _instance;
+  static RoutesWithRetryDAO get instance => _instance;
 
   final Set<PoliticaRetry> _politicas = {};
 

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:pop_network/src/http/intercerptors/retry_interceptor/i_rotas_com_retry.dart';
+import 'package:pop_network/src/http/intercerptors/retry_interceptor/i_routes_with_retry.dart';
 import 'package:pop_network/src/http/intercerptors/utils/interceptor_utils.dart';
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_observable.dart';
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
@@ -7,31 +7,31 @@ import 'package:pop_network/src/http/obsevers/network_error_observable/network_e
 class RetryRequestInterceptor extends Interceptor {
   RetryRequestInterceptor({
     required this.dio,
-    required this.rotasComRetry,
+    required this.routesWithRetry,
   });
   final Dio dio;
-  final IRotasComRetry rotasComRetry;
+  final IRoutesWithRetry routesWithRetry;
 
   @override
   Future onError(
     DioError err,
     ErrorInterceptorHandler handler,
   ) async {
-    final politicaRetry = rotasComRetry.getPolitica(err.requestOptions.path);
+    final politicaRetry = routesWithRetry.getPolitica(err.requestOptions.path);
     if (politicaRetry == null) {
       handler.next(err);
       return err;
     }
 
-    if (politicaRetry.tentativas == 0) {
+    if (politicaRetry.attempts == 0) {
       _notifyMaxRetries(err);
       handler.next(err);
       return err;
     }
 
     try {
-      if (politicaRetry.tentativas > 0 && _shouldRetry(err)) {
-        politicaRetry.decrementarTentativas();
+      if (politicaRetry.attempts > 0 && _shouldRetry(err)) {
+        politicaRetry.decrementAttempts();
         return scheduleRequestRetry(err.requestOptions);
       }
     } catch (e) {

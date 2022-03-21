@@ -1,6 +1,6 @@
 name: pop_network
 description: The plug-in built to simplify internet requests.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/PopcodeMobile/popnetwork
 repository: https://github.com/PopcodeMobile/popnetwork
 

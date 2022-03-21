@@ -1,16 +1,16 @@
 class PoliticaRetry {
   PoliticaRetry({
     required this.url,
-    int tentativas = 3,
-  }) : _tentativas = tentativas;
+    int attempts = 3,
+  }) : _attempts = attempts;
   final String url;
-  int _tentativas;
+  int _attempts;
 
-  int get tentativas => _tentativas;
+  int get attempts => _attempts;
 
-  void decrementarTentativas() {
-    if (_tentativas > 0) {
-      _tentativas--;
+  void decrementAttempts() {
+    if (_attempts > 0) {
+      _attempts--;
     }
   }
 

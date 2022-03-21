@@ -9,3 +9,8 @@
 - Addition of interface for SSLPinning injection;
 - Adding mock calls;
 - Simplify call with DIO;
+
+## [0.0.2] - Add retry policy
+
+- Create in Retry policy;
+- Adjustment in Retry policy;

@@ -15,6 +15,7 @@ enum HttpMethod {
   post,
   put,
 }
+
 /// Extension responsible for carrying out the requests.
 extension MethodEnumExt on HttpMethod {
   /// Responsible for app requests.
@@ -36,6 +37,7 @@ extension MethodEnumExt on HttpMethod {
     }
   }
 }
+
 /// Contract for the classes that implement the requests that the plugin will perform
 abstract class IHttpMethod {
   /// Responsible for app requests.

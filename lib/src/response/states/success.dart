@@ -1,4 +1,5 @@
 import 'package:pop_network/src/response/api_result.dart';
+
 /// Responsible for mapping when the app returns success in a request.
 class Success implements ApiResult {
   Success({

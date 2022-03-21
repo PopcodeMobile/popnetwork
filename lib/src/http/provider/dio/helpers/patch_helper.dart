@@ -1,4 +1,5 @@
 part of '../../../../network.dart';
+
 ///Patch request.
 class PatchHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();

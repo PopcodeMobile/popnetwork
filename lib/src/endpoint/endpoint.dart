@@ -24,8 +24,10 @@ import 'package:pop_network/src/mock/mock_strategy.dart';
 /// - `responseType`: type of request that will be returned by the parent;
 /// - `parametrs`: request data passed in the route;
 /// - `queryParameters`: request data as a parameter in the URL;
-/// - `headers`: It is a validator, a unique string identifying the version of the resource.
-/// - `mockStrategy`: strategy to vary the rock according to who is using the package. For more information [Mock Guide](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/mock.md);
+/// - `headers`: It is a validator, a unique string identifying the version of
+///  the resource.
+/// - `mockStrategy`: strategy to vary the rock according to who is using the 
+/// package. For more information [Mock Guide](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/mock.md);
 /// - `timeout`: Time the app will wait for the request response;
 class Endpoint {
   Endpoint({
@@ -51,4 +53,10 @@ class Endpoint {
   final int? timeout;
 }
 
-enum ResponseType { json, plain, bytes, stream }
+///Network return types.
+enum ResponseType {
+  json,
+  plain,
+  bytes,
+  stream,
+}

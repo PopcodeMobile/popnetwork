@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart' as dio_response_type show ResponseType;
 import 'package:pop_network/src/endpoint/endpoint.dart';
 
+///Mapping of Dio's response types to that of the packet.
 class ContentTypeDioResponse {
   final Map<ResponseType, dio_response_type.ResponseType> _map = {
     ResponseType.json: dio_response_type.ResponseType.json,

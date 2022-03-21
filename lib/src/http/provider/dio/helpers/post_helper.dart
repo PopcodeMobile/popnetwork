@@ -1,5 +1,5 @@
 part of '../../../../network.dart';
-
+///Post request.
 class PostHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
 

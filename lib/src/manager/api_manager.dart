@@ -21,22 +21,22 @@ import 'package:pop_network/src/response/states/success.dart';
 class ApiManager {
   static final NetworkProvider _networkProvider = DioProvider();
   static final RawResponseNotifier _rawResponseNotifier = RawResponseNotifier();
-
+/// add a class to be notified by the api.
   static void addNotifiable(RawResponseNotifiable listener) {
     _rawResponseNotifier.addListener(listener);
   }
-
+/// Remove a class to be notified by the api.
   static void removeNotifiable(RawResponseNotifiable listener) {
     _rawResponseNotifier.removeListener(listener);
   }
-
+/// Sends an internal error to the plugin user.
   static InternalError _makeInternalError() {
     return InternalError(
       message: Network.mapApiError.messageDefault,
       statusCode: 520,
     );
   }
-
+/// Perform the request
   static Future<ApiResult> _request({Endpoint? endpoint}) async {
     final _endpoint = endpoint ?? Endpoint();
     try {
@@ -65,7 +65,7 @@ class ApiManager {
       return _makeInternalError();
     }
   }
-
+/// Call of the request that will be made to the API with the settings that were passed by the Endpoit (if performed).
   static Future<ApiResult> requestApi({Endpoint? endpoint}) {
     if (Network.isMock) {
       return requestMock(endpoint: endpoint);

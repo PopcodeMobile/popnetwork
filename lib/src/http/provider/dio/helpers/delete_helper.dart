@@ -1,5 +1,7 @@
 part of '../../../../network.dart';
 
+///Delete request.
+
 class DeleteHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
 

@@ -19,4 +19,8 @@
 
 - Update links to documentation
 
-## [0.0.4] - more version
+## [0.0.4] - Update description and linsk for git
+
+- Apply flutter format
+- Add documentation to package;
+- Leaving the public repository for contributions;

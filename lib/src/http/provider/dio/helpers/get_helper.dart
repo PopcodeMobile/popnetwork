@@ -1,5 +1,5 @@
 part of '../../../../network.dart';
-
+///Get request.
 class GetHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
 
@@ -28,7 +28,7 @@ class GetHelper implements RequestHelper {
       status: response.statusCode,
     );
   }
-
+///Responsible for mapping the query that is sent in the endPoint
   Map<String, String> mapToQueryString(Endpoint endpoint) {
     final query = endpoint.queryParameters;
 

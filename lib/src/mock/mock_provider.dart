@@ -9,6 +9,7 @@ import 'package:pop_network/src/mock/mock_json_file.dart';
 import 'package:pop_network/src/response/network_response.dart';
 import 'package:pop_network/src/util/query_formatter.dart';
 
+/// Responsible for getting the data from the file that are added to mock the features and validate if the app is connected to the internet.
 class MockProvider {
   InternetConnectionCheckerImpl connectionChecker =
       InternetConnectionCheckerImpl();

@@ -2,8 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:pop_network/pop_network.dart';
 import 'package:pop_network/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:pop_network/src/http/provider/network_provider.dart';
-
+///Responsible for managing and configuring the requests that will be carried out.
 class DioProvider implements NetworkProvider {
+  ///Validate if the request is secure.
   Future<NetworkResponse> _safeRequest({
     required RequestHelper requestHelper,
     required Endpoint endpoint,

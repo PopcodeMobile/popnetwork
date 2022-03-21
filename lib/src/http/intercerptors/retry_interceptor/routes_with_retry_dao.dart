@@ -1,6 +1,7 @@
 import 'package:pop_network/src/http/intercerptors/retry_interceptor/i_routes_with_retry.dart';
-import 'package:pop_network/src/http/intercerptors/retry_interceptor/politica_retry.dart';
+import 'package:pop_network/src/http/intercerptors/retry_interceptor/policy_retry.dart';
 
+///Implementation of the retry policy.
 class RoutesWithRetryDAO implements IRoutesWithRetry {
   RoutesWithRetryDAO._();
 
@@ -8,31 +9,33 @@ class RoutesWithRetryDAO implements IRoutesWithRetry {
 
   static RoutesWithRetryDAO get instance => _instance;
 
-  final Set<PoliticaRetry> _politicas = {};
+  final Set<PolicyRetry> _policy = {};
 
   @override
-  bool get isVazio => _politicas.isEmpty;
+  bool get isEmpty => _policy.isEmpty;
 
   @override
-  int get quantidade => _politicas.length;
+  int get length => _policy.length;
 
-  void adicionarPoliticaRetry(PoliticaRetry politicaRetry) {
-    if (!_politicas.contains(politicaRetry)) {
-      _politicas.add(politicaRetry);
+  ///Responsible for adding the retry policy to your given route.
+  void addPolicyRetry(PolicyRetry policyRetry) {
+    if (!_policy.contains(policyRetry)) {
+      _policy.add(policyRetry);
     }
   }
 
-  void adicionarMultiplasPoliticasRetry(List<PoliticaRetry> politicasRetry) {
-    final politicasNaoExistentes =
-        politicasRetry.where((politica) => !_politicas.contains(politica));
-    _politicas.addAll(politicasNaoExistentes);
+  ///Responsible for adding multiple Retry policies
+  void addMultipleRetryPolicies(List<PolicyRetry> policysRetry) {
+    final nonExistingPolicies =
+        policysRetry.where((policy) => !_policy.contains(policy));
+    _policy.addAll(nonExistingPolicies);
   }
 
   @override
-  PoliticaRetry? getPolitica(String urlPath) {
+  PolicyRetry? getPolicy(String urlPath) {
     try {
-      return _politicas.firstWhere(
-        (rota) => urlPath.contains(rota.url),
+      return _policy.firstWhere(
+        (route) => urlPath.contains(route.url),
         orElse: null,
       );
     } catch (e) {
@@ -40,7 +43,8 @@ class RoutesWithRetryDAO implements IRoutesWithRetry {
     }
   }
 
+  ///Responsible for clearing the retry policy.
   void dispose() {
-    _politicas.clear();
+    _policy.clear();
   }
 }

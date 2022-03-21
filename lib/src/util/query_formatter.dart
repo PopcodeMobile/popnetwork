@@ -1,4 +1,6 @@
+/// Responsible for converting query parameters
 class QueryFormatter {
+  /// Responsible for forming the query parameters
   static String formatQueryParameters(
       {required Map<String, dynamic>? parameters}) {
     String queryParameters = '?';
@@ -11,6 +13,7 @@ class QueryFormatter {
 }
 
 extension QueryFormatterExt on Map<String, dynamic>? {
+  /// Responsible for converting the query parameters
   Map<String, String> parseQueryParameters() {
     final query = this;
     if (query != null) {

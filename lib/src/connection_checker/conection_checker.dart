@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+/// Class responsible for validating the internet connection.
 class ConnectionChecker {
   /// Static method to check if it's connected to internet
   /// lookUpAddress: String to use as lookup address to check internet connection

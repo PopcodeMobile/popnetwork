@@ -4,6 +4,7 @@ import 'package:pop_network/src/http/intercerptors/utils/interceptor_utils.dart'
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_observable.dart';
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
 
+///Interceptor to apply the retry policy
 class RetryRequestInterceptor extends Interceptor {
   RetryRequestInterceptor({
     required this.dio,
@@ -17,7 +18,7 @@ class RetryRequestInterceptor extends Interceptor {
     DioError err,
     ErrorInterceptorHandler handler,
   ) async {
-    final politicaRetry = routesWithRetry.getPolitica(err.requestOptions.path);
+    final politicaRetry = routesWithRetry.getPolicy(err.requestOptions.path);
     if (politicaRetry == null) {
       handler.next(err);
       return err;
@@ -41,6 +42,7 @@ class RetryRequestInterceptor extends Interceptor {
     return err;
   }
 
+  ///Validation if there is an error to apply the retry.
   bool _shouldRetry(DioError err) {
     if (_mapStatusCodeToNetworkErrorType
             .containsKey(err.response?.statusCode) ||
@@ -50,6 +52,7 @@ class RetryRequestInterceptor extends Interceptor {
     return false;
   }
 
+  ///Redo the call that was applied to the retry policy.
   Future<Response> scheduleRequestRetry(RequestOptions requestOptions) async {
     return dio.request<dynamic>(
       requestOptions.path,
@@ -62,6 +65,7 @@ class RetryRequestInterceptor extends Interceptor {
     );
   }
 
+  ///Notify the class that is waiting for the request that the retry number has overflowed
   void _notifyMaxRetries(DioError error) {
     if (_mapStatusCodeToNetworkErrorType
         .containsKey(error.response?.statusCode)) {
@@ -74,11 +78,14 @@ class RetryRequestInterceptor extends Interceptor {
     }
   }
 
+  ///Network error type mapping
   static const Map<int, NetworkErrorType> _mapStatusCodeToNetworkErrorType = {
     504: NetworkErrorType.connectionTimeout,
     502: NetworkErrorType.connectionTimeout,
     500: NetworkErrorType.connectionTimeout
   };
+
+  ///Error type mapping from the DioErrorType of the network
   static const Map<DioErrorType, NetworkErrorType>
       _mapDioErrorTypeToNetworkError = {
     DioErrorType.connectTimeout: NetworkErrorType.connectionTimeout,

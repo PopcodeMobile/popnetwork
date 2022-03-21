@@ -15,5 +15,6 @@ import 'package:pop_network/src/raw_response_notifier/raw_response.dart';
 /// ```
 /// - `onResponse`: allows receiving data in any class to which the `RawResponse` type listener is added;
 abstract class RawResponseNotifiable {
+  /// Function called when notified by the network layer
   void onResponse(RawResponse response);
 }

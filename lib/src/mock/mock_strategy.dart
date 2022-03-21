@@ -21,7 +21,7 @@
 ///   }
 /// }
 /// ```
-
 abstract class MockStrategy {
+  /// Responsible for getting the file that is added to mock the request.
   String? getNameJsonFile();
 }

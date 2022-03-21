@@ -29,7 +29,7 @@ class CheckConnectionInterceptor extends Interceptor {
       }
       if (err.response?.statusCode == 404) {
         NetworkErrorObserver.instance
-            .createNotification(errorType: NetworkErrorType.notfound);
+            .createNotification(errorType: NetworkErrorType.notFound);
       }
     }
 

@@ -1,3 +1,4 @@
+///Responsible for configuring the default network layer timeout settings.
 class TimeoutConfig {
   TimeoutConfig({
     required int connectionTimeout,
@@ -10,7 +11,9 @@ class TimeoutConfig {
 
   final int _milliseconds = 1000;
 
+  ///Set the timeout of a request in milliseconds
   int get connectionTimeout => _connectionTimeout * _milliseconds;
 
+  ///Set the timeout in milliseconds
   int get receiveTimeout => _receiveTimeout * _milliseconds;
 }

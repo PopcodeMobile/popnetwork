@@ -1,6 +1,5 @@
 part of '../../../../network.dart';
 
-
 class GetHelper implements RequestHelper {
   final _contentTypeHelper = ContentTypeDioResponse();
 

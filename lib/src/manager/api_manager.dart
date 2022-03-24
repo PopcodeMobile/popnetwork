@@ -71,15 +71,15 @@ class ApiManager {
   }
 
   /// Call of the request that will be made to the API with the settings that were passed by the Endpoit (if performed).
-  static Future<ApiResult> requestApi({Endpoint? endpoint}) {
+  static Future<ApiResult> requestApi({Endpoint? endpoint, bool? isPackage}) {
     if (PopNetwork.isMock) {
-      return requestMock(endpoint: endpoint);
+      return requestMock(endpoint: endpoint, isPackage: isPackage);
     }
     return _request(endpoint: endpoint);
   }
 
-  static Future<ApiResult> requestMock({Endpoint? endpoint}) {
-    final mock = MockProvider();
+  static Future<ApiResult> requestMock({Endpoint? endpoint, bool? isPackage}) {
+    final mock = MockProvider(isPackage: isPackage ?? false);
     return mock.request(endpoint: endpoint);
   }
 }

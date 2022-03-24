@@ -17,11 +17,14 @@
 
 ## [0.0.3] - Update documentation
 
-- Update links to documentation
+- Update links to documentation;
 
 ## [0.0.4] - Update description and linsk for git
 
-- Apply flutter format
+- Apply flutter format;
 - Add documentation to package;
 - Leaving the public repository for contributions;
-- Update links to documentation
+- Update links to documentation;
+- Removing unnecessary imports;
+- Rename init Config;
+- Adding searches for files in the `packages` folder;

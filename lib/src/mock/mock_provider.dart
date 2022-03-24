@@ -13,6 +13,9 @@ import 'package:pop_network/src/util/query_formatter.dart';
 class MockProvider {
   InternetConnectionCheckerImpl connectionChecker =
       InternetConnectionCheckerImpl();
+  final bool isPackage;
+
+  MockProvider({this.isPackage = false});
   NetworkResponse _buildResponse({
     required dynamic data,
   }) =>
@@ -45,8 +48,7 @@ class MockProvider {
     dynamic jsonResponse;
     if (_validateMock(_endpoint)) {
       jsonResponse = await MockJsonFile.getDataFrom(
-        endpoint: _endpoint,
-      );
+          endpoint: _endpoint, isPackage: isPackage);
     }
 
     NetworkResponse response;

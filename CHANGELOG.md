@@ -19,7 +19,7 @@
 
 - Update links to documentation;
 
-## [0.0.4] - Update description and linsk for git
+## [0.0.4] - Update package
 
 - Apply flutter format;
 - Add documentation to package;

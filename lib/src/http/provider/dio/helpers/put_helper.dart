@@ -10,7 +10,7 @@ class PutHelper implements RequestHelper {
     required Dio httpProvider,
   }) async {
     final Response<dynamic> response = await httpProvider.put<dynamic>(
-      endpoint.suffixPath,
+      endpoint.validSuffixPath,
       data: endpoint.parameters,
       options: Options(
           headers: <String, dynamic>{

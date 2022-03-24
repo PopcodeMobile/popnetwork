@@ -10,7 +10,7 @@ class PatchHelper implements RequestHelper {
     required Dio httpProvider,
   }) async {
     final Response<dynamic> response =
-        await httpProvider.patch<dynamic>(endpoint.suffixPath,
+        await httpProvider.patch<dynamic>(endpoint.validSuffixPath,
             queryParameters: <String, dynamic>{
               ...PopNetwork._instance.queryParameters.parseQueryParameters(),
               ...endpoint.queryParameters.parseQueryParameters(),

@@ -64,7 +64,7 @@ class MockProvider {
     }
 
     print(
-        '--> MOCK: ${response.status} /${_endpoint.suffixPath}${QueryFormatter.formatQueryParameters(parameters: _endpoint.queryParameters)}');
+        '--> MOCK: ${response.status} ${_endpoint.validSuffixPath}${QueryFormatter.formatQueryParameters(parameters: _endpoint.queryParameters)}');
     print('--> ${response.data}');
     if (response.typeError != null) {
       print('--> ERROR: ${response.typeError}');

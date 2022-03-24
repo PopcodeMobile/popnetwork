@@ -51,6 +51,9 @@ class Endpoint {
   final Map<String, dynamic>? queryParameters;
   final MockStrategy? mockStrategy;
   final int? timeout;
+
+  String get validSuffixPath =>
+      suffixPath[0] == '/' ? suffixPath : '/' + suffixPath;
 }
 
 ///Network return types.

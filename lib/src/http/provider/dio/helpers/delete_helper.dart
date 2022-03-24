@@ -11,7 +11,7 @@ class DeleteHelper implements RequestHelper {
     required Dio httpProvider,
   }) async {
     final Response<dynamic> response = await httpProvider.delete<dynamic>(
-      endpoint.suffixPath,
+      endpoint.validSuffixPath,
       data: endpoint.parameters,
       queryParameters: <String, dynamic>{
         ...PopNetwork._instance.queryParameters.parseQueryParameters(),

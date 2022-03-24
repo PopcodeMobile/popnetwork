@@ -36,7 +36,7 @@ example
 
 ```dart
 void main() {
-  Network.config(
+  PopNetwork.config(
     mappedApiError: MapCustomError(),
   )
 }

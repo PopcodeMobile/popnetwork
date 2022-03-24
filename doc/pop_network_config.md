@@ -51,7 +51,7 @@ class RequestInterceptor extends Interceptor {
 }
 void main() {
   void main() {
-  Network.config(
+  PopNetwork.config(
     interceptors: [
       RequestInterceptor(),
     ],

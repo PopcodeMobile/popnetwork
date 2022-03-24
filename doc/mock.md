@@ -19,7 +19,7 @@ To configure, just:
 
 ```dart
 void main() {
-  Network.config(
+  PopNetwork.config(
     pathMock: 'assets/api/responses',
   )
 }

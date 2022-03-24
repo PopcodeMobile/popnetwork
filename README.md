@@ -76,7 +76,7 @@ The `suffixPath` can be used this way or being concatenated with a base url that
 
 ```dart
 void main() {
-  await pop_network.config(baseUrl: "https:www.example.com");
+  await PopNetwork.config(baseUrl: "https:www.example.com");
   runApp(const MyApp());
 }
 ```

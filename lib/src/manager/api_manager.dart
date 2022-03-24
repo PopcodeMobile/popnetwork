@@ -35,7 +35,7 @@ class ApiManager {
   /// Sends an internal error to the plugin user.
   static InternalError _makeInternalError() {
     return InternalError(
-      message: Network.mapApiError.messageDefault,
+      message: PopNetwork.mapApiError.messageDefault,
       statusCode: 520,
     );
   }
@@ -57,7 +57,7 @@ class ApiManager {
       }
 
       _rawResponseNotifier.notify(response);
-      final mappedErrors = Network.mapApiError.mappingError(response.data);
+      final mappedErrors = PopNetwork.mapApiError.mappingError(response.data);
 
       return Future<ApiError>.value(ApiError(
         error: mappedErrors,
@@ -72,7 +72,7 @@ class ApiManager {
 
   /// Call of the request that will be made to the API with the settings that were passed by the Endpoit (if performed).
   static Future<ApiResult> requestApi({Endpoint? endpoint}) {
-    if (Network.isMock) {
+    if (PopNetwork.isMock) {
       return requestMock(endpoint: endpoint);
     }
     return _request(endpoint: endpoint);

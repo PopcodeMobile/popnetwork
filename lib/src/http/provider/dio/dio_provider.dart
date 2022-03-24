@@ -10,7 +10,7 @@ class DioProvider implements NetworkProvider {
     required RequestHelper requestHelper,
     required Endpoint endpoint,
   }) async {
-    Dio _provider = Network.dioCreator
+    Dio _provider = PopNetwork.dioCreator
       ..options.connectTimeout =
           endpoint.timeout ?? HttpConfig.timeoutConfig.connectionTimeout;
 

@@ -22,7 +22,7 @@ class MockJsonFile {
   }
 
   static Future<String> _openFileAsString(String nameFile) async {
-    return await rootBundle.loadString('${Network.pathMocks}/$nameFile.json');
+    return await rootBundle.loadString('${PopNetwork.pathMocks}/$nameFile.json');
   }
 
   /// Responsible for getting the data from the file that are added to mock the features.

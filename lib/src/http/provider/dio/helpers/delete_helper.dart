@@ -14,7 +14,7 @@ class DeleteHelper implements RequestHelper {
       endpoint.suffixPath,
       data: endpoint.parameters,
       queryParameters: <String, dynamic>{
-        ...Network._instance.queryParameters.parseQueryParameters(),
+        ...PopNetwork._instance.queryParameters.parseQueryParameters(),
         ...endpoint.queryParameters.parseQueryParameters(),
       },
       options: Options(

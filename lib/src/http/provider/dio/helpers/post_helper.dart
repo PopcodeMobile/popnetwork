@@ -20,7 +20,7 @@ class PostHelper implements RequestHelper {
             responseType:
                 _contentTypeHelper.getDioResponseType(endpoint.responseType)),
         queryParameters: <String, dynamic>{
-          ...Network._instance.queryParameters.parseQueryParameters(),
+          ...PopNetwork._instance.queryParameters.parseQueryParameters(),
           ...endpoint.queryParameters.parseQueryParameters(),
         },
         data: endpoint.parameters);

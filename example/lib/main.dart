@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pop_network/pop_network.dart';
 
 Future<void> main() async {
-  await Network.config(baseUrl: "https://pokeapi.co/api/v2/pokemon/");
+  await PopNetwork.config(baseUrl: "https://pokeapi.co/api/v2/pokemon/");
   runApp(const MyApp());
 }
 

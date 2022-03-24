@@ -16,10 +16,10 @@ part 'http/provider/dio/helpers/patch_helper.dart';
 part 'http/provider/dio/helpers/post_helper.dart';
 part 'http/provider/dio/helpers/put_helper.dart';
 
-class Network {
-  Network._();
-  static late Network _instance;
-  factory Network() => _instance;
+class PopNetwork {
+  PopNetwork._();
+  static late PopNetwork _instance;
+  factory PopNetwork() => _instance;
 
   /// Variables that can be initialized when starting the Application.
 
@@ -54,7 +54,7 @@ class Network {
     MappedApiError? mappedApiError,
     bool mockedEnvironment = false,
   }) async {
-    _instance = Network._()
+    _instance = PopNetwork._()
       ..headers = headers
       ..pathMock = pathMock ?? 'assets/api/mock/'
       ..baseUrl = baseUrl ?? ''

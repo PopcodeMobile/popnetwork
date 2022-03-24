@@ -12,7 +12,7 @@ class PatchHelper implements RequestHelper {
     final Response<dynamic> response =
         await httpProvider.patch<dynamic>(endpoint.suffixPath,
             queryParameters: <String, dynamic>{
-              ...Network._instance.queryParameters.parseQueryParameters(),
+              ...PopNetwork._instance.queryParameters.parseQueryParameters(),
               ...endpoint.queryParameters.parseQueryParameters(),
             },
             options: Options(

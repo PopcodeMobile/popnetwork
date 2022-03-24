@@ -78,8 +78,28 @@ class ApiManager {
     return _request(endpoint: endpoint);
   }
 
-  static Future<ApiResult> requestMock({Endpoint? endpoint, bool? isPackage}) {
+  static Future<ApiResult> requestMock(
+      {Endpoint? endpoint, bool? isPackage}) async {
     final mock = MockProvider(isPackage: isPackage ?? false);
-    return mock.request(endpoint: endpoint);
+    final NetworkResponse response = await mock.request(endpoint: endpoint);
+    final statusCode = response.status;
+
+    if (statusCode != null && statusCode >= 200 && statusCode < 400) {
+      return Future<Success>.value(
+        Success(data: response.data, statusCode: statusCode),
+      );
+    }
+
+    _rawResponseNotifier.notify(response);
+    final mappedErrors = PopNetwork.mapApiError.mappingError(response.data);
+
+    return Future<ApiError>.value(
+      ApiError(
+        error: mappedErrors,
+        statusCode: statusCode ?? 520,
+        path: response.data['path'],
+        timestamp: response.data['timestamp'],
+      ),
+    );
   }
 }

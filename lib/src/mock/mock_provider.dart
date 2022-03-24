@@ -52,9 +52,9 @@ class MockProvider {
     }
 
     NetworkResponse response;
-    final number = Random(1);
+    final number = Random();
     if (_validateMock(_endpoint)) {
-      if (number.nextBool()) {
+      if (number.nextInt(100) % 2 == 0) {
         response = _buildResponseError();
       } else {
         response = _buildResponse(data: jsonResponse);

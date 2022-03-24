@@ -52,8 +52,12 @@ class Endpoint {
   final MockStrategy? mockStrategy;
   final int? timeout;
 
-  String get validSuffixPath =>
-      suffixPath[0] == '/' ? suffixPath : '/' + suffixPath;
+  String get validSuffixPath {
+    if (suffixPath.isNotEmpty) {
+      return suffixPath[0] == '/' ? suffixPath : '/' + suffixPath;
+    }
+    return suffixPath;
+  }
 }
 
 ///Network return types.

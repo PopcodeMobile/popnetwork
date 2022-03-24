@@ -26,14 +26,14 @@ class PopNetwork {
   List<Interceptor> interceptors = [];
   Map<String, dynamic>? headers;
   String baseUrl = '';
-  String pathMock = 'assets/api/mock';
+  String? pathMock;
   SSLPinning? _pinning;
   Map<String, dynamic>? queryParameters;
   MappedApiError? mappedApiError;
   Dio? dio;
   bool mockedEnvironment = false;
 
-  static String get pathMocks => _instance.pathMock;
+  static String get pathMocks => _instance.pathMock ?? 'assets/api/mock';
   static Dio get dioCreator => _instance.dio ?? Dio();
   static MappedApiError get mapApiError =>
       _instance.mappedApiError ?? MappedApiErrorDefault();
@@ -56,7 +56,7 @@ class PopNetwork {
   }) async {
     _instance = PopNetwork._()
       ..headers = headers
-      ..pathMock = pathMock ?? 'assets/api/mock/'
+      ..pathMock = pathMock
       ..baseUrl = baseUrl ?? ''
       .._pinning = pinning
       ..mockedEnvironment = mockedEnvironment

@@ -26,7 +26,7 @@ class PopNetwork {
   List<Interceptor> interceptors = [];
   Map<String, dynamic>? headers;
   String baseUrl = '';
-  String pathMock = 'assets/api/mock/';
+  String pathMock = 'assets/api/mock';
   SSLPinning? _pinning;
   Map<String, dynamic>? queryParameters;
   MappedApiError? mappedApiError;

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:pop_network/src/endpoint/endpoint.dart';
+import 'package:pop_network/src/mock/mock_strategy.dart';
 import 'package:pop_network/src/network.dart';
 
 /// Responsible for managing files for requests.
@@ -17,10 +18,17 @@ class MockJsonFile {
       return await _getData(jsonFile);
     }
 
-    var jsonFile = endpoint.mockStrategy?.getNameJsonFile();
+    final mockStrategy = endpoint.mockStrategy;
+    final String? jsonFile = mockStrategy?.getJson();
+
     if (jsonFile != null) {
-      return await _getData(await _openFileAsString(jsonFile, isPackage));
+      if (mockStrategy is NameMockStrategy) {
+        return await _getData(await _openFileAsString(jsonFile, isPackage));
+      } else {
+        return _getData(jsonFile);
+      }
     }
+
     return null;
   }
 

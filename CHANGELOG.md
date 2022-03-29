@@ -29,3 +29,7 @@
 - Rename init Config;
 - Adding searches for files in the `packages` folder;
 - Bug fix in mock strategy;
+
+## [0.0.5] - Update mock
+
+- Adding dynamic mock mapping;

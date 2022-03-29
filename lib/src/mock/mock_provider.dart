@@ -48,7 +48,9 @@ class MockProvider {
     dynamic jsonResponse;
     if (_validateMock(_endpoint)) {
       jsonResponse = await MockJsonFile.getDataFrom(
-          endpoint: _endpoint, isPackage: isPackage);
+        endpoint: _endpoint,
+        isPackage: isPackage,
+      );
     }
 
     NetworkResponse response;

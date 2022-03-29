@@ -69,9 +69,9 @@ return await ApiManager.requestApi(
   endpoint: endpoint,
 );
 
-class MockCustomStrategy implements MockStrategy {
+class MockCustomStrategy implements NameMockStrategy {
   @override
-  String getNameJsonFile() {
+  String getJson() {
     final int random = Random().nextInt(2);
     switch (random) {
       case 0:
@@ -81,6 +81,27 @@ class MockCustomStrategy implements MockStrategy {
     }
   }
 }
+```
+
+or
+
+```dart
+
+final Endpoint endpoint = Endpoint(
+  mockStrategy: MockCustomStrategy(),
+);
+
+return await ApiManager.requestApi(
+  endpoint: endpoint,
+);
+
+class MockCustomStrategy implements MockStrategy {
+  @override
+  String getJson() {
+    return jsonEncode({"data": {"id":1}});
+  }
+}
+
 ```
 It is possible to make the requests directly in the mock used:
 

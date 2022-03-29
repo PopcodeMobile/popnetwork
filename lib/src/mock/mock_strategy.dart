@@ -23,5 +23,25 @@
 /// ```
 abstract class MockStrategy {
   /// Responsible for getting the file that is added to mock the request.
-  String? getNameJsonFile();
+  String? getJson();
+}
+
+///responsible for mapping the mocks to the files that are added to the project.
+///```dart
+/// final Endpoint endpoint = Endpoint(
+///   mockStrategy: MockCustomStrategy(),
+/// );
+/// return await ApiManager.requestApi(
+///   endpoint: endpoint,
+/// );
+/// class MockCustomStrategy implements MockStrategy {
+///   @override
+///   String getJson() {
+///     return jsonEncode({"data": {"id":1}});
+///   }
+/// }
+/// ```
+abstract class NameMockStrategy implements MockStrategy {
+  @override
+  String? getJson();
 }

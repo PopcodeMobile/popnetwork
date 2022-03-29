@@ -33,3 +33,4 @@
 ## [0.0.5] - Update mock
 
 - Adding dynamic mock mapping;
+- Adding the optional random MOCK;

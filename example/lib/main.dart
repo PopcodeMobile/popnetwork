@@ -1,10 +1,15 @@
+import 'dart:convert';
+
 import 'package:exemple/conection_check.dart';
 import 'package:exemple/data.dart';
 import 'package:flutter/material.dart';
 import 'package:pop_network/pop_network.dart';
 
 Future<void> main() async {
-  await PopNetwork.config(baseUrl: "https://pokeapi.co/api/v2/pokemon/");
+  await PopNetwork.config(
+    baseUrl: "https://pokeapi.co/api/v2/pokemon/",
+    mockedEnvironment: true,
+  );
   runApp(const MyApp());
 }
 
@@ -34,7 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Pokemon> list = [];
 
   void requestApi() {
-    ApiManager.requestApi().then((value) {
+    final Endpoint endpoint = Endpoint(
+      mockStrategy: MockCustom(),
+    );
+    ApiManager.requestApi(endpoint: endpoint).then((value) {
       if (value is Success) {
         final listMaps = value.data['results'] as List;
         final listGenerate = List.generate(
@@ -78,5 +86,39 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+}
+
+class MockCustom implements MockStrategy {
+  @override
+  String? getJson() {
+    return jsonEncode({
+      "results": [
+        {
+          "name": "Pokemo",
+        },
+        {
+          "name": "Pokemo",
+        },
+        {
+          "name": "Pokemo",
+        },
+        {
+          "name": "Pokemo",
+        },
+        {
+          "name": "Pokemo",
+        },
+        {
+          "name": "Pokemo",
+        },
+        {
+          "name": "Pokemo",
+        },
+        {
+          "name": "Pokemo",
+        },
+      ]
+    });
   }
 }

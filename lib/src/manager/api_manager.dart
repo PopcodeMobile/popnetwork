@@ -11,6 +11,7 @@ import 'package:pop_network/src/raw_response_notifier/raw_response_notifier.dart
 import 'package:pop_network/src/response/api_result.dart';
 import 'package:pop_network/src/response/network_response.dart';
 import 'package:pop_network/src/response/states/apiError/api_error.dart';
+import 'package:pop_network/src/response/states/apiError/mapped_api_error.dart';
 import 'package:pop_network/src/response/states/internal_error.dart';
 import 'package:pop_network/src/response/states/success.dart';
 
@@ -55,12 +56,14 @@ class ApiManager {
           Success(data: response.data, statusCode: statusCode),
         );
       }
-
+      MappedApiError? mappedApiError;
       _rawResponseNotifier.notify(response);
-      final mappedErrors = PopNetwork.mapApiError.mappingError(response.data);
+      if (response.data != null) {
+        mappedApiError = PopNetwork.mapApiError.mappingError(response.data);
+      }
 
       return Future<ApiError>.value(ApiError(
-        error: mappedErrors,
+        error: mappedApiError,
         statusCode: statusCode ?? 520,
         path: response.data['path'],
         timestamp: response.data['timestamp'],
@@ -78,27 +81,32 @@ class ApiManager {
     return _request(endpoint: endpoint);
   }
 
-  static Future<ApiResult> requestMock(
-      {Endpoint? endpoint, bool? isPackage}) async {
-    final mock = MockProvider(isPackage: isPackage ?? false);
-    final NetworkResponse response = await mock.request(endpoint: endpoint);
+  static Future<ApiResult> requestMock({
+    Endpoint? endpoint,
+    bool? isPackage,
+    bool? randomMock,
+  }) async {
+    final mock = MockProvider(
+      isPackage: isPackage ?? false,
+    );
+    final NetworkResponse response = await mock.request(
+      endpoint: endpoint,
+      ramdomMock: randomMock ?? true,
+    );
     final statusCode = response.status;
 
     if (statusCode != null && statusCode >= 200 && statusCode < 400) {
       return Future<Success>.value(
-        Success(data: response.data, statusCode: statusCode),
+        Success(
+          data: response.data,
+          statusCode: statusCode,
+        ),
       );
     }
 
-    _rawResponseNotifier.notify(response);
-    final mappedErrors = PopNetwork.mapApiError.mappingError(response.data);
-
     return Future<ApiError>.value(
       ApiError(
-        error: mappedErrors,
         statusCode: statusCode ?? 520,
-        path: response.data['path'],
-        timestamp: response.data['timestamp'],
       ),
     );
   }

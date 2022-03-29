@@ -25,7 +25,7 @@ class MockJsonFile {
       if (mockStrategy is NameMockStrategy) {
         return await _getData(await _openFileAsString(jsonFile, isPackage));
       } else {
-        return _getData(jsonFile);
+        return await _getData(jsonFile);
       }
     }
 

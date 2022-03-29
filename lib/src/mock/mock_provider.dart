@@ -37,7 +37,10 @@ class MockProvider {
       endpoint.mockStrategy != null ||
       (endpoint.mockName != null && endpoint.mockName!.isNotEmpty);
 
-  Future<NetworkResponse> request({Endpoint? endpoint}) async {
+  Future<NetworkResponse> request({
+    Endpoint? endpoint,
+    bool ramdomMock = true,
+  }) async {
     final _endpoint = endpoint ?? Endpoint();
     final isConnected = await connectionChecker.isConnected();
     if (!isConnected) {
@@ -56,7 +59,7 @@ class MockProvider {
     NetworkResponse response;
     final number = Random();
     if (_validateMock(_endpoint)) {
-      if (number.nextInt(100) % 2 == 0) {
+      if (number.nextInt(100) % 2 == 0 && ramdomMock) {
         response = _buildResponseError();
       } else {
         response = _buildResponse(data: jsonResponse);

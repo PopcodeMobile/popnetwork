@@ -1,10 +1,9 @@
-import 'package:pop_network/src/response/api_result.dart';
-import 'package:pop_network/src/response/states/apiError/mapped_api_error.dart';
+import 'package:pop_network/pop_network.dart';
 
 class ApiError implements ApiResult {
   ApiError({
     required this.statusCode,
-    this.error,
+    this.data,
     this.path,
     this.timestamp,
   });
@@ -12,5 +11,5 @@ class ApiError implements ApiResult {
   final int statusCode;
   final String? path;
   final String? timestamp;
-  final MappedApiError? error;
+  final dynamic data;
 }

@@ -7,7 +7,7 @@
 - Package creation;
 - Creation of functions for configurations;
 - Addition of interface for SSLPinning injection;
-- Adding mock calls;
+- Addition mock calls;
 - Simplify call with DIO;
 
 ## [0.0.2] - Add retry policy
@@ -27,10 +27,15 @@
 - Update links to documentation;
 - Removing unnecessary imports;
 - Rename init Config;
-- Adding searches for files in the `packages` folder;
+- Addition searches for files in the `packages` folder;
 - Bug fix in mock strategy;
 
 ## [0.0.5] - Update mock
 
-- Adding dynamic mock mapping;
-- Adding the optional random MOCK;
+- Addition dynamic mock mapping;
+- Addition the optional random MOCK;
+
+## [0.0.6] - Update mock
+
+- Addition export SSL Pinning;
+- Addition of parameters received by the error;

@@ -11,7 +11,6 @@ import 'package:pop_network/src/raw_response_notifier/raw_response_notifier.dart
 import 'package:pop_network/src/response/api_result.dart';
 import 'package:pop_network/src/response/network_response.dart';
 import 'package:pop_network/src/response/states/apiError/api_error.dart';
-import 'package:pop_network/src/response/states/apiError/mapped_api_error.dart';
 import 'package:pop_network/src/response/states/internal_error.dart';
 import 'package:pop_network/src/response/states/success.dart';
 
@@ -36,7 +35,7 @@ class ApiManager {
   /// Sends an internal error to the plugin user.
   static InternalError _makeInternalError() {
     return InternalError(
-      message: PopNetwork.mapApiError.messageDefault,
+      message: PopNetwork.errorMessage,
       statusCode: 520,
     );
   }
@@ -56,14 +55,9 @@ class ApiManager {
           Success(data: response.data, statusCode: statusCode),
         );
       }
-      MappedApiError? mappedApiError;
-      _rawResponseNotifier.notify(response);
-      if (response.data != null) {
-        mappedApiError = PopNetwork.mapApiError.mappingError(response.data);
-      }
 
       return Future<ApiError>.value(ApiError(
-        error: mappedApiError,
+        data: response.data,
         statusCode: statusCode ?? 520,
         path: response.data['path'],
         timestamp: response.data['timestamp'],

@@ -7,7 +7,6 @@ import 'package:pop_network/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:pop_network/src/http/provider/dio/helpers/response_type_dio_helper.dart';
 import 'package:pop_network/src/http/ssl_pinning/ssl_pinning.dart';
 import 'package:pop_network/src/response/network_response.dart';
-import 'package:pop_network/src/response/states/apiError/mapped_api_error.dart';
 import 'package:pop_network/src/util/query_formatter.dart';
 
 part 'http/provider/dio/helpers/delete_helper.dart';
@@ -29,15 +28,14 @@ class PopNetwork {
   String? pathMock;
   SSLPinning? _pinning;
   Map<String, dynamic>? queryParameters;
-  MappedApiError? mappedApiError;
   Dio? dio;
   bool mockedEnvironment = false;
 
   static String get pathMocks => _instance.pathMock ?? 'assets/api/mock';
   static Dio get dioCreator => _instance.dio ?? Dio();
-  static MappedApiError get mapApiError =>
-      _instance.mappedApiError ?? MappedApiErrorDefault();
   static bool get isMock => _instance.mockedEnvironment;
+
+  static String errorMessage = '';
 
   ///
   /// Function responsible for starting pop_network
@@ -47,11 +45,11 @@ class PopNetwork {
   static Future<void> config({
     String? baseUrl,
     String? pathMock,
+    String? errorMessage,
     Map<String, dynamic>? headers,
     SSLPinning? pinning,
     List<Interceptor>? interceptors,
     Map<String, dynamic>? queryParameters,
-    MappedApiError? mappedApiError,
     bool mockedEnvironment = false,
   }) async {
     _instance = PopNetwork._()
@@ -77,7 +75,8 @@ class PopNetwork {
     await _instance._pinning?.pinningCertificate(
       httpClientAdapter: dioCreate.httpClientAdapter,
     );
-    _instance.mappedApiError = mappedApiError;
     _instance.dio = dioCreate;
+    errorMessage =
+        errorMessage ?? 'Sorry, there was a problem. Please try again later.';
   }
 }

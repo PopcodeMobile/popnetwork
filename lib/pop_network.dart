@@ -1,7 +1,6 @@
 export 'src/connection_checker/conection_checker.dart';
 export 'src/endpoint/endpoint.dart';
 export 'src/http/http.dart';
-export 'src/http/intercerptors/check_connection_interceptor.dart';
 export 'src/manager/api_manager.dart';
 export 'src/methods/http_method.dart' show HttpMethod;
 export 'src/mock/mock.dart';

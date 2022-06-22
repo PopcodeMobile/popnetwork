@@ -35,11 +35,15 @@
 - Addition dynamic mock mapping;
 - Addition the optional random MOCK;
 
-## [0.0.6] - Update mock
+## [0.0.6] - Update packege
 
 - Addition export SSL Pinning;
 - Addition of parameters received by the error;
 
-## [0.0.7] - Update mock
+## [0.0.7] - Update ConnectionChecker
 
 - Update ConnectionChecker;
+
+## [0.0.8] - Update packege
+
+- Delete CheckConnectionInterceptor;

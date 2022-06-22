@@ -9,6 +9,6 @@ enum NetworkErrorType {
   ///Page does not exist
   notFound,
 
-  ///Inspired token
+  ///Expired token
   expiredToken,
 }

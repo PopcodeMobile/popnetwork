@@ -7,12 +7,6 @@ import 'package:pop_network/src/http/obsevers/network_error_observable/network_e
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
 
 class CheckConnectionInterceptor extends Interceptor {
-  CheckConnectionInterceptor({
-    required this.dio,
-  });
-
-  final Dio dio;
-
   @override
   Future onError(
     DioError err,

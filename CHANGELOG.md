@@ -39,3 +39,7 @@
 
 - Addition export SSL Pinning;
 - Addition of parameters received by the error;
+
+## [0.0.7] - Update mock
+
+- Update ConnectionChecker;

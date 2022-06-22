@@ -2,18 +2,16 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:pop_network/src/connection_checker/internet_connection_checker.dart';
+import 'package:pop_network/src/connection_checker/conection_checker.dart';
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_observable.dart';
 import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
 
 class CheckConnectionInterceptor extends Interceptor {
   CheckConnectionInterceptor({
     required this.dio,
-    required this.connectionChecker,
   });
 
   final Dio dio;
-  final InternetConnectionChecker connectionChecker;
 
   @override
   Future onError(
@@ -22,7 +20,7 @@ class CheckConnectionInterceptor extends Interceptor {
   ) async {
     if (err.error != null) {
       if (err.error is SocketException) {
-        if (!await connectionChecker.isConnected()) {
+        if (!await ConnectionChecker.isConnectedToInternet()) {
           NetworkErrorObserver.instance
               .createNotification(errorType: NetworkErrorType.noConnection);
         }
@@ -41,11 +39,10 @@ class CheckConnectionInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final isConnected = await connectionChecker.isConnected();
+    final isConnected = await ConnectionChecker.isConnectedToInternet();
     if (!isConnected) {
       NetworkErrorObserver.instance
           .createNotification(errorType: NetworkErrorType.noConnection);
-      await connectionChecker.handleRetryWhenInternetBack();
     }
     handler.next(options);
   }

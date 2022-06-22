@@ -1,18 +1,13 @@
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:pop_network/src/connection_checker/internet_connection_checker.dart';
 import 'package:pop_network/src/endpoint/endpoint.dart';
-import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_observable.dart';
-import 'package:pop_network/src/http/obsevers/network_error_observable/network_error_type.dart';
 import 'package:pop_network/src/mock/mock_json_file.dart';
 import 'package:pop_network/src/response/network_response.dart';
 import 'package:pop_network/src/util/query_formatter.dart';
 
 /// Responsible for getting the data from the file that are added to mock the features and validate if the app is connected to the internet.
 class MockProvider {
-  InternetConnectionCheckerImpl connectionChecker =
-      InternetConnectionCheckerImpl();
   final bool isPackage;
 
   MockProvider({this.isPackage = false});
@@ -42,12 +37,6 @@ class MockProvider {
     bool ramdomMock = true,
   }) async {
     final _endpoint = endpoint ?? Endpoint();
-    final isConnected = await connectionChecker.isConnected();
-    if (!isConnected) {
-      NetworkErrorObserver.instance
-          .createNotification(errorType: NetworkErrorType.noConnection);
-      await connectionChecker.handleRetryWhenInternetBack();
-    }
     dynamic jsonResponse;
     if (_validateMock(_endpoint)) {
       jsonResponse = await MockJsonFile.getDataFrom(

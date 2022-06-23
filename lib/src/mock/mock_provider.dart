@@ -8,9 +8,9 @@ import 'package:pop_network/src/util/query_formatter.dart';
 
 /// Responsible for getting the data from the file that are added to mock the features and validate if the app is connected to the internet.
 class MockProvider {
-  final bool isPackage;
+  final String? namePackege;
 
-  MockProvider({this.isPackage = false});
+  MockProvider({this.namePackege});
   NetworkResponse _buildResponse({
     required dynamic data,
   }) =>
@@ -34,21 +34,21 @@ class MockProvider {
 
   Future<NetworkResponse> request({
     Endpoint? endpoint,
-    bool ramdomMock = true,
+    bool ramdomError = true,
   }) async {
     final _endpoint = endpoint ?? Endpoint();
     dynamic jsonResponse;
     if (_validateMock(_endpoint)) {
       jsonResponse = await MockJsonFile.getDataFrom(
         endpoint: _endpoint,
-        isPackage: isPackage,
+        namePackege: namePackege,
       );
     }
 
     NetworkResponse response;
     final number = Random();
     if (_validateMock(_endpoint)) {
-      if (number.nextInt(100) % 2 == 0 && ramdomMock) {
+      if (number.nextInt(100) % 2 == 0 && ramdomError) {
         response = _buildResponseError();
       } else {
         response = _buildResponse(data: jsonResponse);

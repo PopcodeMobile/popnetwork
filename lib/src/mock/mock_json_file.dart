@@ -10,11 +10,11 @@ class MockJsonFile {
   /// Responsible for getting the data from the file that are added to mock the features.
   static Future<dynamic> getDataFrom({
     required Endpoint endpoint,
-    bool isPackage = false,
+    String? namePackege,
   }) async {
     var mockName = endpoint.mockName;
     if (endpoint.mockStrategy == null && mockName != null) {
-      final jsonFile = await _openFileAsString(mockName, isPackage);
+      final jsonFile = await _openFileAsString(mockName, namePackege);
       return await _getData(jsonFile);
     }
 
@@ -23,7 +23,7 @@ class MockJsonFile {
 
     if (jsonFile != null) {
       if (mockStrategy is NameMockStrategy) {
-        return await _getData(await _openFileAsString(jsonFile, isPackage));
+        return await _getData(await _openFileAsString(jsonFile, namePackege));
       } else {
         return await _getData(jsonFile);
       }
@@ -33,9 +33,9 @@ class MockJsonFile {
   }
 
   static Future<String> _openFileAsString(
-      String nameFile, bool isPackage) async {
+      String nameFile, String? namePackage) async {
     return await rootBundle.loadString(
-        '${isPackage ? 'packages/' : ''}${PopNetwork.pathMocks}/$nameFile.json');
+        '${namePackage != null ? 'packages/$namePackage/' : ''}${PopNetwork.pathMocks}/$nameFile.json');
   }
 
   /// Responsible for getting the data from the file that are added to mock the features.

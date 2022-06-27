@@ -47,3 +47,7 @@
 ## [0.0.8] - Update packege
 
 - Delete CheckConnectionInterceptor;
+
+## [0.0.9] - Update packege
+
+- Update Random Mock Error;

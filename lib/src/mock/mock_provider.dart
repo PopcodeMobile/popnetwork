@@ -34,7 +34,7 @@ class MockProvider {
 
   Future<NetworkResponse> request({
     Endpoint? endpoint,
-    bool ramdomError = true,
+    bool ramdomMockError = false,
   }) async {
     final _endpoint = endpoint ?? Endpoint();
     dynamic jsonResponse;
@@ -48,7 +48,7 @@ class MockProvider {
     NetworkResponse response;
     final number = Random();
     if (_validateMock(_endpoint)) {
-      if (number.nextInt(100) % 2 == 0 && ramdomError) {
+      if (number.nextInt(100) % 2 == 0 && ramdomMockError) {
         response = _buildResponseError();
       } else {
         response = _buildResponse(data: jsonResponse);

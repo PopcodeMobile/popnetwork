@@ -8,9 +8,9 @@ import 'package:pop_network/src/util/query_formatter.dart';
 
 /// Responsible for getting the data from the file that are added to mock the features and validate if the app is connected to the internet.
 class MockProvider {
-  final String? namePackege;
+  final String? namePackage;
 
-  MockProvider({this.namePackege});
+  MockProvider({this.namePackage});
   NetworkResponse _buildResponse({
     required dynamic data,
   }) =>
@@ -41,7 +41,7 @@ class MockProvider {
     if (_validateMock(_endpoint)) {
       jsonResponse = await MockJsonFile.getDataFrom(
         endpoint: _endpoint,
-        namePackege: namePackege,
+        namePackage: namePackage,
       );
     }
 

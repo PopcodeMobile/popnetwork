@@ -10,11 +10,11 @@ class MockJsonFile {
   /// Responsible for getting the data from the file that are added to mock the features.
   static Future<dynamic> getDataFrom({
     required Endpoint endpoint,
-    String? namePackege,
+    String? namePackage,
   }) async {
     var mockName = endpoint.mockName;
     if (endpoint.mockStrategy == null && mockName != null) {
-      final jsonFile = await _openFileAsString(mockName, namePackege);
+      final jsonFile = await _openFileAsString(mockName, namePackage);
       return await _getData(jsonFile);
     }
 
@@ -23,7 +23,7 @@ class MockJsonFile {
 
     if (jsonFile != null) {
       if (mockStrategy is NameMockStrategy) {
-        return await _getData(await _openFileAsString(jsonFile, namePackege));
+        return await _getData(await _openFileAsString(jsonFile, namePackage));
       } else {
         return await _getData(jsonFile);
       }

@@ -44,10 +44,15 @@
 
 - Update ConnectionChecker;
 
-## [0.0.8] - Update packege
+## [0.0.8] - Update package
 
 - Delete CheckConnectionInterceptor;
 
-## [0.0.9] - Update packege
+## [0.0.9] - Update package
 
 - Update Random Mock Error;
+
+## [0.0.10] - Update package
+
+- Added randomError parameter on requestApi for mock environment;
+- Fix typos

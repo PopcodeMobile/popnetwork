@@ -67,26 +67,33 @@ class ApiManager {
     }
   }
 
-  /// Call of the request that will be made to the API with the settings that were passed by the Endpoit (if performed).
-  static Future<ApiResult> requestApi(
-      {Endpoint? endpoint, String? namePackege}) {
+  /// Call of the request that will be made to the API with the settings that were passed by the Endpoint (if performed).
+  static Future<ApiResult> requestApi({
+    Endpoint? endpoint,
+    String? namePackage,
+    bool? randomError,
+  }) {
     if (PopNetwork.isMock) {
-      return requestMock(endpoint: endpoint, namePackege: namePackege);
+      return requestMock(
+        endpoint: endpoint,
+        namePackage: namePackage,
+        randomError: randomError,
+      );
     }
     return _request(endpoint: endpoint);
   }
 
   static Future<ApiResult> requestMock({
     Endpoint? endpoint,
-    String? namePackege,
-    bool? ramdomError,
+    String? namePackage,
+    bool? randomError,
   }) async {
     final mock = MockProvider(
-      namePackege: namePackege,
+      namePackage: namePackage,
     );
     final NetworkResponse response = await mock.request(
       endpoint: endpoint,
-      ramdomMockError: ramdomError ?? false,
+      ramdomMockError: randomError ?? false,
     );
     final statusCode = response.status;
 

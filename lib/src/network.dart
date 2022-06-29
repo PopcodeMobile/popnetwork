@@ -30,12 +30,13 @@ class PopNetwork {
   Map<String, dynamic>? queryParameters;
   Dio? dio;
   bool mockedEnvironment = false;
+  String errorMessage = '';
 
   static String get pathMocks => _instance.pathMock ?? 'assets/api/mock';
   static Dio get dioCreator => _instance.dio ?? Dio();
   static bool get isMock => _instance.mockedEnvironment;
 
-  static String errorMessage = '';
+  static String get defaultErrorMessage => _instance.errorMessage;
 
   ///
   /// Function responsible for starting pop_network
@@ -58,6 +59,8 @@ class PopNetwork {
       ..baseUrl = baseUrl ?? ''
       .._pinning = pinning
       ..mockedEnvironment = mockedEnvironment
+      ..errorMessage =
+          errorMessage ?? 'Sorry, there was a problem. Please try again later.'
       ..queryParameters = queryParameters;
 
     final dioCreate = Dio()
@@ -76,7 +79,5 @@ class PopNetwork {
       httpClientAdapter: dioCreate.httpClientAdapter,
     );
     _instance.dio = dioCreate;
-    errorMessage =
-        errorMessage ?? 'Sorry, there was a problem. Please try again later.';
   }
 }

@@ -35,7 +35,7 @@ class ApiManager {
   /// Sends an internal error to the plugin user.
   static InternalError _makeInternalError() {
     return InternalError(
-      message: PopNetwork.errorMessage,
+      message: PopNetwork.defaultErrorMessage,
       statusCode: 520,
     );
   }

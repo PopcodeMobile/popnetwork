@@ -56,3 +56,7 @@
 
 - Added randomError parameter on requestApi for mock environment;
 - Fix typos
+
+## [0.0.11] - Update package
+
+- Fix default error message not sent to InternalError

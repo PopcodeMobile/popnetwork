@@ -40,6 +40,7 @@ class Endpoint {
     this.headers,
     this.mockStrategy,
     this.timeout,
+    this.mockRandomError = false,
   });
 
   final String suffixPath;
@@ -51,6 +52,7 @@ class Endpoint {
   final Map<String, dynamic>? queryParameters;
   final MockStrategy? mockStrategy;
   final int? timeout;
+  final bool mockRandomError;
 
   String get validSuffixPath {
     if (suffixPath.isNotEmpty) {

@@ -60,3 +60,7 @@
 ## [0.0.11] - Update package
 
 - Fix default error message not sent to InternalError
+
+## [0.0.12] - Refactor randomError
+
+- BREAKING CHANGE: randomError is now part of Endpoint class.

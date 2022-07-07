@@ -71,13 +71,11 @@ class ApiManager {
   static Future<ApiResult> requestApi({
     Endpoint? endpoint,
     String? namePackage,
-    bool? randomError,
   }) {
     if (PopNetwork.isMock) {
       return requestMock(
         endpoint: endpoint,
         namePackage: namePackage,
-        randomError: randomError,
       );
     }
     return _request(endpoint: endpoint);
@@ -86,14 +84,12 @@ class ApiManager {
   static Future<ApiResult> requestMock({
     Endpoint? endpoint,
     String? namePackage,
-    bool? randomError,
   }) async {
     final mock = MockProvider(
       namePackage: namePackage,
     );
     final NetworkResponse response = await mock.request(
       endpoint: endpoint,
-      ramdomMockError: randomError ?? false,
     );
     final statusCode = response.status;
 

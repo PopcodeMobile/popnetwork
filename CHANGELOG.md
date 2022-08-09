@@ -64,3 +64,7 @@
 ## [0.0.12] - Refactor randomError
 
 - BREAKING CHANGE: randomError is now part of Endpoint class.
+
+## [0.0.13] - Fix response notify
+
+- Fix: Now when a request is made a notify is send to all listeners

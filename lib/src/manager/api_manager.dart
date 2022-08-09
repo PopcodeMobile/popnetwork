@@ -50,6 +50,8 @@ class ApiManager {
       );
       var statusCode = response.status;
 
+      _rawResponseNotifier.notify(response);
+
       if (statusCode != null && statusCode >= 200 && statusCode < 400) {
         return Future<Success>.value(
           Success(data: response.data, statusCode: statusCode),

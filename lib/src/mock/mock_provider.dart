@@ -53,7 +53,7 @@ class MockProvider {
         response = _buildResponse(data: jsonResponse);
       }
     } else {
-      response = _buildResponseError();
+      response = _buildResponseError(data: _endpoint.mockBodyError);
     }
 
     print(

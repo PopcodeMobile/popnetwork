@@ -67,4 +67,9 @@
 
 ## [0.0.13] - Fix response notify
 
-- Fix: Now when a request is made a notify is send to all listeners
+- Fix: Now when a request is made a notify is send to all listeners.
+
+## [0.0.14] - Update Lib
+
+- DIO dependency update.
+- Adding personality error return in mock;

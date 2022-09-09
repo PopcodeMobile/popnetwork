@@ -72,4 +72,4 @@
 ## [0.0.14] - Update Lib
 
 - DIO dependency update.
-- Adding personality error return in mock;
+- Adding personality error return in mock.

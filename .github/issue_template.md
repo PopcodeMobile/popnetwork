@@ -35,5 +35,4 @@ Search the [issue tracker :shipit:](../) before creating one.
 * Operating system and version:
 * Link to your project:
 
-
 Translated with www.DeepL.com/Translator (free version)

@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/46109133/149638236-08219c77-c837-4883-b428-8bd5c864e850.png" alt="dt money" width="200"/>
+   <img src="https://user-images.githubusercontent.com/66264766/157141908-c8a760f7-6e13-4046-90f6-9243f698062b.png" alt="dt money" width="200"/>
 </p>
 
 ## :computer: Titulo
@@ -13,7 +13,7 @@ Para testar, faça ....
 ## :camera: Screenshots
 
 <div align="center">
-   <img src="https://user-images.githubusercontent.com/46109133/149638236-08219c77-c837-4883-b428-8bd5c864e850.png" width="150"/>
+   <img src="https://user-images.githubusercontent.com/66264766/157141908-c8a760f7-6e13-4046-90f6-9243f698062b.png" width="150"/>
 
 </div>
 
@@ -28,4 +28,3 @@ Para testar, faça ....
 - [ ] Added a link to the repo in the PR
 
 ---
-

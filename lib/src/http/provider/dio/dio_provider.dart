@@ -14,6 +14,8 @@ class DioProvider implements NetworkProvider {
       ..options.connectTimeout =
           endpoint.timeout ?? HttpConfig.timeoutConfig.connectionTimeout;
 
+    _provider.options.extra.addAll({'cacheable': endpoint.cacheable});
+
     try {
       return await requestHelper.makeRequestHelper(
         endpoint: endpoint,

@@ -39,7 +39,7 @@ class Endpoint {
     this.queryParameters,
     this.headers,
     this.mockStrategy,
-    this.cacheable = false,
+    this.cacheExpiresIn,
     this.timeout,
     this.mockRandomError = false,
   });
@@ -52,7 +52,7 @@ class Endpoint {
   final Map<String, dynamic>? parameters;
   final Map<String, dynamic>? queryParameters;
   final MockStrategy? mockStrategy;
-  final bool cacheable;
+  final Duration? cacheExpiresIn;
   final int? timeout;
   final bool mockRandomError;
 

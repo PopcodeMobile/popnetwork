@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:pop_network/src/endpoint/endpoint.dart';
-import 'package:pop_network/src/http/http_config.dart';
 import 'package:pop_network/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:pop_network/src/http/provider/dio/helpers/response_type_dio_helper.dart';
 import 'package:pop_network/src/http/ssl_pinning/ssl_pinning.dart';
+import 'package:pop_network/src/http/timeout_config.dart';
 import 'package:pop_network/src/response/network_response.dart';
 import 'package:pop_network/src/util/query_formatter.dart';
 
@@ -65,7 +65,7 @@ class PopNetwork {
 
     final dioCreate = Dio()
       ..options.baseUrl = _instance.baseUrl
-      ..options.receiveTimeout = HttpConfig.timeoutConfig.receiveTimeout
+      ..options.receiveTimeout = TimeoutConfig().receiveTimeout
       ..options.headers = _instance.headers;
 
     if (interceptors != null) {

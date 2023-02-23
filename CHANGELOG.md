@@ -79,3 +79,7 @@
 ## [0.0.15] - Add cacheExpiresIn field
 
 - Added adding field cacheExpiresIn
+
+## [0.0.16] - Update lib
+
+- DIO dependency update;

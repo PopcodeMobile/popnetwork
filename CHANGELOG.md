@@ -67,6 +67,13 @@
 
 ## [0.0.13] - Fix response notify
 
+- Fix: Now when a request is made a notification is sent to all listeners.
+
+## [0.0.14] - Update Lib
+
+- DIO dependency update;
+- Adding personality error return in mock.
+
 - Fix: Now when a request is made a notify is send to all listeners
 
 ## [0.0.15] - Add cacheExpiresIn field

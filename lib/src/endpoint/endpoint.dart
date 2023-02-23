@@ -42,6 +42,7 @@ class Endpoint {
     this.cacheExpiresIn,
     this.timeout,
     this.mockRandomError = false,
+    this.mockBodyError,
   });
 
   final String suffixPath;
@@ -55,6 +56,7 @@ class Endpoint {
   final Duration? cacheExpiresIn;
   final int? timeout;
   final bool mockRandomError;
+  final Map<String, dynamic>? mockBodyError;
 
   String get validSuffixPath {
     if (suffixPath.isNotEmpty) {

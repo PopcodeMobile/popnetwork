@@ -1,4 +1,3 @@
-export 'http_config.dart';
 export 'intercerptors/retry_interceptor/i_routes_with_retry.dart';
 export 'intercerptors/retry_interceptor/policy_retry.dart';
 export 'intercerptors/retry_interceptor/retry_request_interceptor.dart';

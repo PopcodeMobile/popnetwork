@@ -84,6 +84,6 @@
 
 - DIO dependency update;
 - 
-## [0.0.16] - Fix http export
+## [0.0.17] - Fix http export
 
 - Fix: remove http config export;

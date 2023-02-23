@@ -1,6 +1,6 @@
 name: pop_network
 description: The plug-in built to simplify internet requests, validate the internet and help the developer to make good use of the API's.
-version: 0.0.17
+version: 0.0.18
 homepage: https://github.com/PopcodeMobile/popnetwork
 repository: https://github.com/PopcodeMobile/popnetwork
 
@@ -9,7 +9,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  dio: ^5.0.0
+  dio: 4.0.6
   flutter:
     sdk: flutter
 

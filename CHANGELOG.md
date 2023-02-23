@@ -87,3 +87,8 @@
 ## [0.0.17] - Fix http export
 
 - Fix: remove http config export;
+
+
+## [0.0.18] - Fix Dio update
+
+- Fix: remove update dio;

@@ -68,3 +68,7 @@
 ## [0.0.13] - Fix response notify
 
 - Fix: Now when a request is made a notify is send to all listeners
+
+## [0.0.15] - Add cacheExpiresIn field
+
+- Added adding field cacheExpiresIn

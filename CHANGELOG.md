@@ -86,4 +86,4 @@
 - 
 ## [0.0.16] - Fix http export
 
-- Fix: remove http export;
+- Fix: remove http config export;

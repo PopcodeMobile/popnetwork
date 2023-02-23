@@ -25,7 +25,7 @@ class MockProvider {
       NetworkResponse(
         data: data,
         status: 400,
-        typeError: DioErrorType.badResponse,
+        typeError: DioErrorType.response,
       );
 
   bool _validateMock(Endpoint endpoint) =>

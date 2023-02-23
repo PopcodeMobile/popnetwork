@@ -9,9 +9,11 @@ class TimeoutConfig {
   final int _connectionTimeout;
   final int _receiveTimeout;
 
-  ///Set the timeout of a request in seconds
-  Duration get connectionTimeout => Duration(seconds: _connectionTimeout);
+  final int _milliseconds = 1000;
 
-  ///Set the timeout in seconds
-  Duration get receiveTimeout => Duration(seconds: _receiveTimeout);
+  ///Set the timeout of a request in milliseconds
+  int get connectionTimeout => _connectionTimeout * _milliseconds;
+
+  ///Set the timeout in milliseconds
+  int get receiveTimeout => _receiveTimeout * _milliseconds;
 }

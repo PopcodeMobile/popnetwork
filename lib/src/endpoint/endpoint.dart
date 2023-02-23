@@ -29,6 +29,7 @@ import 'package:pop_network/src/mock/mock_strategy.dart';
 /// - `mockStrategy`: strategy to vary the rock according to who is using the
 /// package. For more information [Mock Guide](https://github.com/PopcodeMobile/popnetwork/blob/main/doc/mock.md);
 /// - `timeout`: Time the app will wait for the request response;
+/// - `cacheExpiresIn`: route cache expiration time (to be captured in the interceptor);
 class Endpoint {
   Endpoint({
     this.suffixPath = '',
@@ -39,6 +40,7 @@ class Endpoint {
     this.queryParameters,
     this.headers,
     this.mockStrategy,
+    this.cacheExpiresIn,
     this.timeout,
     this.mockRandomError = false,
     this.mockBodyError,
@@ -52,6 +54,7 @@ class Endpoint {
   final Map<String, dynamic>? parameters;
   final Map<String, dynamic>? queryParameters;
   final MockStrategy? mockStrategy;
+  final Duration? cacheExpiresIn;
   final int? timeout;
   final bool mockRandomError;
   final Map<String, dynamic>? mockBodyError;

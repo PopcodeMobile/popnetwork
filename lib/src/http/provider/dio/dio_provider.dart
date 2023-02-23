@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:pop_network/pop_network.dart';
 import 'package:pop_network/src/http/provider/dio/helpers/request_helper.dart';
 import 'package:pop_network/src/http/provider/network_provider.dart';
+import 'package:pop_network/src/http/timeout_config.dart';
 
 ///Responsible for managing and configuring the requests that will be carried out.
 class DioProvider implements NetworkProvider {
@@ -12,7 +13,9 @@ class DioProvider implements NetworkProvider {
   }) async {
     Dio _provider = PopNetwork.dioCreator
       ..options.connectTimeout =
-          endpoint.timeout ?? HttpConfig.timeoutConfig.connectionTimeout;
+          TimeoutConfig(connectionTimeout: endpoint.timeout).connectionTimeout;
+
+    _provider.options.extra.addAll({'cacheExpiresIn': endpoint.cacheExpiresIn});
 
     try {
       return await requestHelper.makeRequestHelper(

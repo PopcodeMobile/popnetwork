@@ -10,6 +10,7 @@ class RetryRequestInterceptor extends Interceptor {
     required this.dio,
     required this.routesWithRetry,
   });
+
   final Dio dio;
   final IRoutesWithRetry routesWithRetry;
 
@@ -88,7 +89,7 @@ class RetryRequestInterceptor extends Interceptor {
   ///Error type mapping from the DioErrorType of the network
   static const Map<DioErrorType, NetworkErrorType>
       _mapDioErrorTypeToNetworkError = {
-    DioErrorType.connectTimeout: NetworkErrorType.connectionTimeout,
+    DioErrorType.connectionTimeout: NetworkErrorType.connectionTimeout,
     DioErrorType.receiveTimeout: NetworkErrorType.connectionTimeout
   };
 }

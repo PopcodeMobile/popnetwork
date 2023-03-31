@@ -13,7 +13,7 @@ class DioProvider implements NetworkProvider {
   }) async {
     Dio _provider = PopNetwork.dioCreator
       ..options.connectTimeout =
-          TimeoutConfig(connectionTimeout: endpoint.timeout).connectionTimeout;
+      Duration(milliseconds: TimeoutConfig(connectionTimeout: endpoint.timeout).connectionTimeout);
 
     _provider.options.extra.addAll({'cacheExpiresIn': endpoint.cacheExpiresIn});
 

@@ -11,9 +11,10 @@ class DioProvider implements NetworkProvider {
     required RequestHelper requestHelper,
     required Endpoint endpoint,
   }) async {
-    Dio _provider = PopNetwork.dioCreator
-      ..options.connectTimeout =
-      Duration(milliseconds: TimeoutConfig(connectionTimeout: endpoint.timeout).connectionTimeout);
+    final _provider = PopNetwork.dioCreator
+      ..options.connectTimeout = Duration(
+          milliseconds: TimeoutConfig(connectionTimeout: endpoint.timeout)
+              .connectionTimeout);
 
     _provider.options.extra.addAll({'cacheExpiresIn': endpoint.cacheExpiresIn});
 
@@ -23,7 +24,7 @@ class DioProvider implements NetworkProvider {
         httpProvider: _provider,
       );
     } on DioError catch (e) {
-      var response = e.response;
+      final response = e.response;
       if (response != null && response.statusCode != null) {
         return NetworkResponse(
           data: response.data,

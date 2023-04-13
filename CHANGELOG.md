@@ -1,4 +1,4 @@
-## [0.0.1] - Creating packeges
+## [0.0.1] - Creating packages
 
 - Componentization of the network layer;
 - Configuration of the base url;
@@ -92,3 +92,7 @@
 ## [0.0.18] - Fix Dio update
 
 - Fix: remove update dio;
+
+## [0.0.19] - Update lib
+
+- DIO dependency updated to 5.0.3;

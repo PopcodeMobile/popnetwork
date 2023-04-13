@@ -65,7 +65,8 @@ class PopNetwork {
 
     final dioCreate = Dio()
       ..options.baseUrl = _instance.baseUrl
-      ..options.receiveTimeout = TimeoutConfig().receiveTimeout
+      ..options.contentType = Headers.jsonContentType
+      ..options.receiveTimeout = Duration(milliseconds: TimeoutConfig().receiveTimeout)
       ..options.headers = _instance.headers;
 
     if (interceptors != null) {

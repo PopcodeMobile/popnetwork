@@ -71,11 +71,13 @@ class ApiManager {
 
   /// Call of the request that will be made to the API with the settings that were passed by the Endpoint (if performed).
   static Future<ApiResult> requestApi({
+    int mockDelayInSeconds = 1,
     Endpoint? endpoint,
     String? namePackage,
   }) {
     if (PopNetwork.isMock) {
       return requestMock(
+        mockDelayInSeconds: mockDelayInSeconds,
         endpoint: endpoint,
         namePackage: namePackage,
       );
@@ -84,12 +86,16 @@ class ApiManager {
   }
 
   static Future<ApiResult> requestMock({
+    required int mockDelayInSeconds,
     Endpoint? endpoint,
     String? namePackage,
   }) async {
     final mock = MockProvider(
       namePackage: namePackage,
     );
+
+    await Future<void>.delayed(Duration(seconds: mockDelayInSeconds));
+
     final NetworkResponse response = await mock.request(
       endpoint: endpoint,
     );

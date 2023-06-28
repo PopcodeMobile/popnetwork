@@ -1,3 +1,7 @@
+## [0.0.20] - Add mockDelayInSeconds
+
+- Add a parameter mockDelayInSeconds to Mock Requests;
+
 ## [0.0.19] - Update lib
 
 - DIO dependency updated to 5.0.3;

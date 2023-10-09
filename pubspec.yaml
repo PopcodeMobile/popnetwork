@@ -7,7 +7,6 @@ repository: https://github.com/PopcodeMobile/popnetwork
 environment:
   sdk: ^3.1.2
 
-# Add regular dependencies here.
 dependencies:
   dio: ^5.3.3
   http_mock_adapter: ^0.6.0

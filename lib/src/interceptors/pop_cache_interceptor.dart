@@ -10,9 +10,7 @@ import 'package:popnetwork/src/cache/request_cache_key.dart';
 /// The cache storage could be managed by any class that implements the
 /// [ICacheRequestData] interface.
 class PopCacheInterceptor extends Interceptor {
-  PopCacheInterceptor({
-    required ICacheRequestData cacheRequestData,
-  }) : _cacheReqData = cacheRequestData;
+  PopCacheInterceptor(this._cacheReqData);
 
   final ICacheRequestData _cacheReqData;
 

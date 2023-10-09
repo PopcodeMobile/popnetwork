@@ -15,15 +15,15 @@ class ApiManager extends IApiManager {
     int receiveTimeout = 30,
     Map<String, dynamic>? headers,
     List<Interceptor> interceptors = const [],
-    HttpClient Function(HttpClient)? onHttpClientCreate,
+    HttpClient Function()? createHttpClient,
     this.loadMockAsset,
   }) {
     if (loadMockAsset != null) {
       _dioAdapter = DioAdapter(dio: this);
       httpClientAdapter = _dioAdapter;
-    } else if (onHttpClientCreate != null) {
+    } else if (createHttpClient != null) {
       final ioHttpClientAdapter = IOHttpClientAdapter();
-      ioHttpClientAdapter.onHttpClientCreate = onHttpClientCreate;
+      ioHttpClientAdapter.createHttpClient = createHttpClient;
       httpClientAdapter = ioHttpClientAdapter;
     }
 

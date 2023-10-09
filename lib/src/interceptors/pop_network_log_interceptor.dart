@@ -55,7 +55,7 @@ class PopNetworkLogInterceptor implements Interceptor {
 
   @override
   void onError(
-    DioError err,
+    DioException err,
     ErrorInterceptorHandler handler,
   ) {
     if (showRequest) {

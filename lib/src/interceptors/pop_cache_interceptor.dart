@@ -62,7 +62,7 @@ class PopCacheInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     if (_getCacheExpiresIn(err.requestOptions) != null) {
       _cacheReqData.completeRequest(
         key: RequestCacheKey.fromRequestOptions(err.requestOptions),

@@ -17,6 +17,16 @@ class RequestCacheKey {
             : null,
       );
 
+  factory RequestCacheKey.fromJson(Map<String, dynamic> json) {
+    return RequestCacheKey._(
+      path: json['path'] as String,
+      method: json['method'] as String,
+      cacheExpirationDate: json['cacheExpirationDate'] != null
+          ? DateTime.parse(json['cacheExpirationDate'] as String)
+          : null,
+    );
+  }
+
   final String path;
   final String method;
   final DateTime? cacheExpirationDate;
@@ -30,4 +40,10 @@ class RequestCacheKey {
 
   @override
   int get hashCode => path.hashCode ^ method.hashCode;
+
+  Map<String, dynamic> get toJson => {
+        'path': path,
+        'method': method,
+        'cacheExpirationDate': cacheExpirationDate?.toIso8601String(),
+      };
 }

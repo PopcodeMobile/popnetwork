@@ -4,6 +4,8 @@ import 'package:dio/dio.dart';
 
 import 'package:popnetwork/src/cache/request_cache_key.dart';
 
+/// [ICacheRequestData] is a contract with the basics methods for managing the
+/// cache storage for the requests data.
 abstract class ICacheRequestData {
   void completeRequest({
     required RequestCacheKey key,

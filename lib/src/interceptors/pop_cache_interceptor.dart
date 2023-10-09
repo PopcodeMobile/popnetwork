@@ -5,6 +5,10 @@ import 'package:dio/dio.dart';
 import 'package:popnetwork/src/cache/i_cache_request_data.dart';
 import 'package:popnetwork/src/cache/request_cache_key.dart';
 
+/// [PopCacheInterceptor] is an interceptor that adds support for caching
+/// requests with a specified [cacheExpiresIn] duration.
+/// The cache storage could be managed by any class that implements the
+/// [ICacheRequestData] interface.
 class PopCacheInterceptor extends Interceptor {
   PopCacheInterceptor({
     required ICacheRequestData cacheRequestData,

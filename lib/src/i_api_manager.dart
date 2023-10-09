@@ -13,6 +13,7 @@ abstract class IApiManager extends DioForNative {
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   });
 
@@ -24,6 +25,7 @@ abstract class IApiManager extends DioForNative {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   });
 
@@ -36,6 +38,7 @@ abstract class IApiManager extends DioForNative {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   });
 
@@ -48,6 +51,7 @@ abstract class IApiManager extends DioForNative {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   });
 
@@ -60,6 +64,7 @@ abstract class IApiManager extends DioForNative {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   });
 }

@@ -45,6 +45,18 @@ class ApiManager extends IApiManager {
 
   bool get _mockedEnvironment => loadMockAsset != null;
 
+  Options? _getOptionsWithCacheExpiresIn(
+    Duration? cacheExpiresIn,
+    Options? options,
+  ) {
+    if (cacheExpiresIn != null) {
+      options ??= Options();
+      options.extra ??= <String, dynamic>{};
+      options.extra!['cacheExpiresIn'] = cacheExpiresIn;
+    }
+    return options;
+  }
+
   @override
   Future<Response<T>> get<T>(
     String path, {
@@ -53,6 +65,7 @@ class ApiManager extends IApiManager {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
@@ -60,8 +73,9 @@ class ApiManager extends IApiManager {
     }
     return super.get(
       path,
+      data: data,
       queryParameters: queryParameters,
-      options: options,
+      options: _getOptionsWithCacheExpiresIn(cacheExpiresIn, options),
       cancelToken: cancelToken,
       onReceiveProgress: onReceiveProgress,
     );
@@ -76,6 +90,7 @@ class ApiManager extends IApiManager {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
@@ -85,7 +100,7 @@ class ApiManager extends IApiManager {
       path,
       data: data,
       queryParameters: queryParameters,
-      options: options,
+      options: _getOptionsWithCacheExpiresIn(cacheExpiresIn, options),
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -101,6 +116,7 @@ class ApiManager extends IApiManager {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
@@ -110,7 +126,7 @@ class ApiManager extends IApiManager {
       path,
       data: data,
       queryParameters: queryParameters,
-      options: options,
+      options: _getOptionsWithCacheExpiresIn(cacheExpiresIn, options),
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -126,6 +142,7 @@ class ApiManager extends IApiManager {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
@@ -136,7 +153,7 @@ class ApiManager extends IApiManager {
       path,
       data: data,
       queryParameters: queryParameters,
-      options: options,
+      options: _getOptionsWithCacheExpiresIn(cacheExpiresIn, options),
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -150,6 +167,7 @@ class ApiManager extends IApiManager {
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
+    Duration? cacheExpiresIn,
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
@@ -159,7 +177,7 @@ class ApiManager extends IApiManager {
       path,
       data: data,
       queryParameters: queryParameters,
-      options: options,
+      options: _getOptionsWithCacheExpiresIn(cacheExpiresIn, options),
       cancelToken: cancelToken,
     );
   }

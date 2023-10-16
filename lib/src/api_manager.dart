@@ -32,7 +32,6 @@ class ApiManager extends IApiManager {
       headers: headers,
       connectTimeout: Duration(seconds: connectTimeout),
       receiveTimeout: Duration(seconds: receiveTimeout),
-      contentType: Headers.jsonContentType,
     );
 
     this.interceptors.addAll(interceptors);

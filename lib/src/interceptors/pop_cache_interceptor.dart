@@ -28,7 +28,7 @@ class PopCacheInterceptor extends Interceptor {
     }
 
     final reqKey = RequestCacheKey.fromRequestOptions(options);
-    final oldKey = _cacheReqData.getRequestKey(key: reqKey);
+    final oldKey = await _cacheReqData.getRequestKey(key: reqKey);
     if (oldKey != null && !oldKey.isCacheExpired) {
       final request = _cacheReqData.getRequestResponse(key: reqKey);
       if (request != null) {
@@ -39,8 +39,8 @@ class PopCacheInterceptor extends Interceptor {
         }
       }
     }
-    _cacheReqData.removeRequest(key: reqKey);
-    _cacheReqData.addRequest(key: reqKey);
+    await _cacheReqData.removeRequest(key: reqKey);
+    await _cacheReqData.addRequest(key: reqKey);
 
     handler.next(options);
   }

@@ -11,37 +11,37 @@ class MemoryCacheRequestData implements ICacheRequestData {
   final _requestsData = <RequestCacheKey, Completer<Response<dynamic>?>>{};
 
   @override
-  void completeRequest({
+  Future<void> completeRequest({
     required RequestCacheKey key,
     Response<dynamic>? response,
-  }) {
+  }) async {
     _requestsData[key]?.complete(response);
   }
 
   @override
   Future<Response<dynamic>?>? getRequestResponse({
     required RequestCacheKey key,
-  }) async =>
-      await _requestsData[key]?.future;
+  }) =>
+      _requestsData[key]?.future;
 
   @override
-  void addRequest({required RequestCacheKey key}) {
+  Future<void> addRequest({required RequestCacheKey key}) async {
     _requestsData[key] = Completer<Response<dynamic>?>();
   }
 
   @override
-  void removeRequest({required RequestCacheKey key}) {
+  Future<void> removeRequest({required RequestCacheKey key}) async {
     _requestsData.remove(key);
   }
 
   @override
-  RequestCacheKey? getRequestKey({
+  Future<RequestCacheKey?> getRequestKey({
     required RequestCacheKey key,
-  }) {
+  }) async {
     final result = _requestsData.keys.where((_key) => _key == key);
     return result.isEmpty ? null : result.first;
   }
 
   @override
-  void clearRequestsData() => _requestsData.clear();
+  Future<void> clearRequestsData() async => _requestsData.clear();
 }

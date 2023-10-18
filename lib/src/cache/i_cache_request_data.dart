@@ -7,7 +7,7 @@ import 'package:popnetwork/src/cache/request_cache_key.dart';
 /// [ICacheRequestData] is a contract with the basics methods for managing the
 /// cache storage for the requests data.
 abstract class ICacheRequestData {
-  void completeRequest({
+  Future<void> completeRequest({
     required RequestCacheKey key,
     Response<dynamic>? response,
   });
@@ -16,13 +16,13 @@ abstract class ICacheRequestData {
     required RequestCacheKey key,
   });
 
-  void addRequest({required RequestCacheKey key});
+  Future<void> addRequest({required RequestCacheKey key});
 
-  void removeRequest({required RequestCacheKey key});
+  Future<void> removeRequest({required RequestCacheKey key});
 
-  RequestCacheKey? getRequestKey({
+  Future<RequestCacheKey?> getRequestKey({
     required RequestCacheKey key,
   });
 
-  void clearRequestsData();
+  Future<void> clearRequestsData();
 }

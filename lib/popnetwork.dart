@@ -1,7 +1,7 @@
 library;
 
 export 'package:dio/dio.dart'
-    show Response, ResponseType, Options, RequestOptions;
+    show Response, ResponseType, Options, Headers, RequestOptions;
 export 'src/api_manager.dart';
 export 'src/i_api_manager.dart';
 export 'src/cache/i_cache_request_data.dart';

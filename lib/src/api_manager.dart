@@ -68,7 +68,11 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
-      _dioAdapter.onGet(path, (req) => _onMockRequest(req, mockReplyParams));
+      _dioAdapter.onGet(
+        path,
+        (req) => _onMockRequest(req, mockReplyParams),
+        data: Matchers.any,
+      );
     }
     return super.get(
       path,
@@ -93,7 +97,11 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
-      _dioAdapter.onPost(path, (req) => _onMockRequest(req, mockReplyParams));
+      _dioAdapter.onPost(
+        path,
+        (req) => _onMockRequest(req, mockReplyParams),
+        data: Matchers.any,
+      );
     }
     return super.post(
       path,
@@ -119,7 +127,11 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
-      _dioAdapter.onPatch(path, (req) => _onMockRequest(req, mockReplyParams));
+      _dioAdapter.onPatch(
+        path,
+        (req) => _onMockRequest(req, mockReplyParams),
+        data: Matchers.any,
+      );
     }
     return super.patch(
       path,
@@ -145,7 +157,11 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
-      _dioAdapter.onPut(path, (req) => _onMockRequest(req, mockReplyParams));
+      _dioAdapter.onPut(
+        path,
+        (req) => _onMockRequest(req, mockReplyParams),
+        data: Matchers.any,
+      );
     }
 
     return super.put(
@@ -170,7 +186,11 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
-      _dioAdapter.onDelete(path, (req) => _onMockRequest(req, mockReplyParams));
+      _dioAdapter.onDelete(
+        path,
+        (req) => _onMockRequest(req, mockReplyParams),
+        data: Matchers.any,
+      );
     }
     return super.delete(
       path,

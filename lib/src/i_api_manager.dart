@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
-import 'package:popnetwork/src/mock/mock_reply_params.dart';
+import 'package:pop_network/src/mock/mock_reply_params.dart';
 
 /// [IApiManager] is an abstract class that extends [DioForNative] and
 /// adds support for mocking requests.

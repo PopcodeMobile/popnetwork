@@ -1,4 +1,4 @@
-import 'package:popnetwork/src/enums/http_status_enum.dart';
+import 'package:pop_network/src/enums/http_status_enum.dart';
 
 /// [MockReplyParams] is used to configure a mock request reply.
 class MockReplyParams {

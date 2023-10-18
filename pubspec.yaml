@@ -1,4 +1,4 @@
-name: popnetwork
+name: pop_network
 description: The plug-in built to simplify HTTP requests and help the developer to make good use of the Rest API's.
 version: 1.0.0
 homepage: https://github.com/PopcodeMobile/popnetwork

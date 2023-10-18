@@ -1,14 +1,14 @@
 # Popnetwork
 
-The `popnetwork` library is an extension of the Dio HTTP client, designed to simplify HTTP requests and assist developers in making efficient use of REST APIs. It includes support for mocking responses using the `http_mock_adapter` library.
+The `pop_network` library is an extension of the Dio HTTP client, designed to simplify HTTP requests and assist developers in making efficient use of REST APIs. It includes support for mocking responses using the `http_mock_adapter` library.
 
 ## Installation
 
-Add the `popnetwork` package to your `pubspec.yaml` file:
+Add the `pop_network` package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  popnetwork: ^2.0.0
+  pop_network: ^1.0.0
 ```
 
 Then run pub get to install the package.
@@ -17,10 +17,10 @@ Then run pub get to install the package.
 
 ### Simple Usage
 
-To get started with `popnetwork`, create an instance of `ApiManager` with your desired configuration. Here's an example of a simple GET request:
+To get started with `pop_network`, create an instance of `ApiManager` with your desired configuration. Here's an example of a simple GET request:
 
 ```dart
-import 'package:popnetwork/popnetwork.dart';
+import 'package:pop_network/pop_network.dart';
 
 final _apiManager = ApiManager(
   baseUrl: 'https://jsonplaceholder.typicode.com',
@@ -34,7 +34,7 @@ void getTodo() async {
 
 ### Mocking Responses
 
-You can also use `popnetwork` to mock responses for testing or development purposes. Provide a `loadMockAsset` function and use `MockReplyParams` to configure mock responses:
+You can also use `pop_network` to mock responses for testing or development purposes. Provide a `loadMockAsset` function and use `MockReplyParams` to configure mock responses:
 
 ```dart
 final _apiManager = ApiManager(
@@ -53,7 +53,7 @@ await _apiManager.get(
 ```
 
 ### Logging
-`popnetwork` provides built-in logging support. You can configure it like this:
+`pop_network` provides built-in logging support. You can configure it like this:
 
 ```dart
 final _apiManager = ApiManager(
@@ -95,4 +95,4 @@ print(response.data);
 
 ## Issues and Contributions
 
-If you encounter any issues or would like to contribute to this library, please visit the [GitHub repository](https://github.com/PopcodeMobile/popnetwork).
+If you encounter any issues or would like to contribute to this library, please visit the [GitHub repository](https://github.com/PopcodeMobile/pop_network).

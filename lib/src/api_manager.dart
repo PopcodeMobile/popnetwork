@@ -5,8 +5,8 @@ import 'package:dio/io.dart';
 import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 
-import 'package:popnetwork/src/i_api_manager.dart';
-import 'package:popnetwork/src/mock/mock_reply_params.dart';
+import 'package:pop_network/src/i_api_manager.dart';
+import 'package:pop_network/src/mock/mock_reply_params.dart';
 
 class ApiManager extends IApiManager {
   ApiManager({

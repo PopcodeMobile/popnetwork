@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 
-import 'package:popnetwork/src/cache/i_cache_request_data.dart';
-import 'package:popnetwork/src/cache/request_cache_key.dart';
+import 'package:pop_network/src/cache/i_cache_request_data.dart';
+import 'package:pop_network/src/cache/request_cache_key.dart';
 
 /// [PopCacheInterceptor] is an interceptor that adds support for caching
 /// requests with a specified [cacheExpiresIn] duration.

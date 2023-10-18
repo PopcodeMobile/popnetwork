@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 
-import 'package:popnetwork/src/cache/i_cache_request_data.dart';
-import 'package:popnetwork/src/cache/request_cache_key.dart';
+import 'package:pop_network/src/cache/i_cache_request_data.dart';
+import 'package:pop_network/src/cache/request_cache_key.dart';
 
 /// [MemoryCacheRequestData] is a class that implements [ICacheRequestData] and
 /// manages the cache storage for the requests data in memory using a Map.

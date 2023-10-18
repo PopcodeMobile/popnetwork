@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 /// [RequestCacheKey] is a class that represents the key of a request in the cache.
@@ -21,9 +23,9 @@ class RequestCacheKey {
     return RequestCacheKey._(
       path: json['path'] as String,
       method: json['method'] as String,
-      cacheExpirationDate: json['cacheExpirationDate'] != null
-          ? DateTime.parse(json['cacheExpirationDate'] as String)
-          : null,
+      cacheExpirationDate: DateTime.tryParse(
+        json['cacheExpirationDate'] as String,
+      ),
     );
   }
 
@@ -33,6 +35,8 @@ class RequestCacheKey {
 
   bool get isCacheExpired =>
       cacheExpirationDate?.isBefore(DateTime.now()) ?? true;
+
+  String get storageKey => '$method-$path';
 
   @override
   bool operator ==(covariant RequestCacheKey other) =>
@@ -46,4 +50,6 @@ class RequestCacheKey {
         'method': method,
         'cacheExpirationDate': cacheExpirationDate?.toIso8601String(),
       };
+
+  String toJsonString() => jsonEncode(toJson());
 }

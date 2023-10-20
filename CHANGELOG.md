@@ -1,3 +1,13 @@
+## [1.0.0] - Stable version
+
+- Refactor to contain only the essentials;
+- Make ApiManager injectable into datasources;
+- Eliminate any business logic from the library;
+- Extend Dio to provide base functions and parameters;
+- Allow mocking Response instead of just the data attribute;
+- Works with mocks in dynamic directories;
+- Adds logic for caching request data.
+
 ## [0.0.20] - Add mockDelayInSeconds
 
 - Add a parameter mockDelayInSeconds to Mock Requests;

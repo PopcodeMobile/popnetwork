@@ -68,9 +68,10 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
+      final jsonMock = await loadMockAsset!(mockReplyParams.mockPath);
       _dioAdapter.onGet(
         path,
-        (req) => _onMockRequest(req, mockReplyParams),
+        (req) => _onMockRequest(req, mockReplyParams, jsonMock),
         data: Matchers.any,
       );
     }
@@ -97,9 +98,10 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
+      final jsonMock = await loadMockAsset!(mockReplyParams.mockPath);
       _dioAdapter.onPost(
         path,
-        (req) => _onMockRequest(req, mockReplyParams),
+        (req) => _onMockRequest(req, mockReplyParams, jsonMock),
         data: Matchers.any,
       );
     }
@@ -127,9 +129,10 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
+      final jsonMock = await loadMockAsset!(mockReplyParams.mockPath);
       _dioAdapter.onPatch(
         path,
-        (req) => _onMockRequest(req, mockReplyParams),
+        (req) => _onMockRequest(req, mockReplyParams, jsonMock),
         data: Matchers.any,
       );
     }
@@ -157,9 +160,10 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
+      final jsonMock = await loadMockAsset!(mockReplyParams.mockPath);
       _dioAdapter.onPut(
         path,
-        (req) => _onMockRequest(req, mockReplyParams),
+        (req) => _onMockRequest(req, mockReplyParams, jsonMock),
         data: Matchers.any,
       );
     }
@@ -186,9 +190,10 @@ class ApiManager extends IApiManager {
     MockReplyParams? mockReplyParams,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
+      final jsonMock = await loadMockAsset!(mockReplyParams.mockPath);
       _dioAdapter.onDelete(
         path,
-        (req) => _onMockRequest(req, mockReplyParams),
+        (req) => _onMockRequest(req, mockReplyParams, jsonMock),
         data: Matchers.any,
       );
     }
@@ -201,10 +206,14 @@ class ApiManager extends IApiManager {
     );
   }
 
-  Future<void> _onMockRequest(request, MockReplyParams params) async {
+  Future<void> _onMockRequest(
+    request,
+    MockReplyParams params,
+    String mock,
+  ) async {
     await request.reply(
       params.status.code,
-      json.decode(await loadMockAsset!(params.mockPath)),
+      json.decode(mock),
       statusMessage: params.status.message,
       delay: params.delay,
     );

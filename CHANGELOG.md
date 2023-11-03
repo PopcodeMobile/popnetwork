@@ -1,3 +1,7 @@
+## [1.0.1] - Fix mock load
+
+- Change logic to await the load mock asset in mock requests
+
 ## [1.0.0] - Stable version
 
 - Refactor to contain only the essentials;

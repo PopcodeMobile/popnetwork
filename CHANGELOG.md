@@ -1,6 +1,7 @@
 ## [1.0.2] - Feat Download
 
 - add function to download file
+- update version dio + http_mock_adapter
 
 ## [1.0.1] - Fix mock load
 

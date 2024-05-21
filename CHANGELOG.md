@@ -1,3 +1,7 @@
+## [1.0.2] - Fix mock load
+
+- add function to download file
+
 ## [1.0.1] - Fix mock load
 
 - Change logic to await the load mock asset in mock requests

@@ -226,7 +226,6 @@ class ApiManager extends IApiManager {
     Map<String, dynamic>? queryParameters,
     Options? options,
     CancelToken? cancelToken,
-    ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
     Duration? cacheExpiresIn,
     String lengthHeader = Headers.contentLengthHeader,

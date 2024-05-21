@@ -1,4 +1,4 @@
-## [1.0.2] - Fix mock load
+## [1.0.2] - Feat Download
 
 - add function to download file
 

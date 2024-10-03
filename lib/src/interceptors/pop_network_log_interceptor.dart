@@ -84,7 +84,11 @@ class PopNetworkLogInterceptor implements Interceptor {
       options.headers.forEach((key, value) => logPrint('$key: $value'));
     }
     if (showRequestBody && options.data != null) {
-      logPrint(JsonEncoder.withIndent('  ').convert(options.data));
+      try {
+        logPrint(JsonEncoder.withIndent('  ').convert(options.data));
+      } catch (e) {
+        logPrint('Error serializing request data: ${e.toString()}');
+      }
     }
 
     handler.next(options);

@@ -9,7 +9,7 @@ environment:
   flutter: ">=3.0.0"
 
 dependencies:
-  dio: ^5.4.3+1
+  dio: ^5.7.0
   http_mock_adapter: ^0.6.1
 
 dev_dependencies:

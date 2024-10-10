@@ -1,6 +1,13 @@
+
+## [1.0.3] - Feat Download
+
+- add function to download file
+- update version dio + http_mock_adapter
+
 ## [1.0.2] - Improved Data Serialization with Error Handling
 
 - Updated logging behavior to attempt serialization of request data using `JsonEncoder`. If serialization fails (e.g., when handling `FormData`), an error message is logged instead of causing a crash. This ensures more robust logging for different types of request data.
+
 
 ## [1.0.1] - Fix mock load
 

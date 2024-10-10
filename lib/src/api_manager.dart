@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:dio/io.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
-
 import 'package:pop_network/src/i_api_manager.dart';
 import 'package:pop_network/src/mock/mock_reply_params.dart';
 
@@ -216,6 +215,41 @@ class ApiManager extends IApiManager {
       json.decode(mock),
       statusMessage: params.status.message,
       delay: params.delay,
+    );
+  }
+
+  @override
+  Future<Response> download(
+    String path,
+    dynamic savePath, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
+    String lengthHeader = Headers.contentLengthHeader,
+    bool deleteOnError = true,
+    MockReplyParams? mockReplyParams,
+  }) async {
+    if (_mockedEnvironment && mockReplyParams != null) {
+      final jsonMock = await loadMockAsset!(mockReplyParams.mockPath);
+      _dioAdapter.onDelete(
+        path,
+        (req) => _onMockRequest(req, mockReplyParams, jsonMock),
+        data: Matchers.any,
+      );
+    }
+    return super.download(
+      path,
+      savePath,
+      data: data,
+      queryParameters: queryParameters,
+      options: _getOptionsWithCacheExpiresIn(cacheExpiresIn, options),
+      cancelToken: cancelToken,
+      onReceiveProgress: onReceiveProgress,
+      deleteOnError: deleteOnError,
+      lengthHeader: lengthHeader,
     );
   }
 }

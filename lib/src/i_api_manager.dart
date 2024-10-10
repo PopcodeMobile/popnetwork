@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-
 import 'package:pop_network/src/mock/mock_reply_params.dart';
 
 /// [IApiManager] is an abstract class that extends [DioForNative] and
@@ -65,6 +64,21 @@ abstract class IApiManager extends DioForNative {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
     Duration? cacheExpiresIn,
+    MockReplyParams? mockReplyParams,
+  });
+
+  @override
+  Future<Response> download(
+    String path,
+    dynamic savePath, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onReceiveProgress,
+    Duration? cacheExpiresIn,
+    String lengthHeader = Headers.contentLengthHeader,
+    bool deleteOnError = true,
     MockReplyParams? mockReplyParams,
   });
 }

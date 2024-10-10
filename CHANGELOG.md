@@ -1,5 +1,5 @@
 
-## [1.0.3] - Feat Download
+## [1.1.0] - Feat Download
 
 - add function to download file
 - update version dio + http_mock_adapter

@@ -1,3 +1,6 @@
+## [1.1.1] - Feat Download
+
+- ajuste na serializacao do do data no log interceptor
 
 ## [1.1.0] - Feat Download
 

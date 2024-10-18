@@ -127,10 +127,14 @@ extension _ResponseExtension on Response {
     if (requestOptions.responseType == ResponseType.bytes) {
       return _formatTypeBytes;
     }
-    final jsonFormatado = JsonEncoder.withIndent('  ').convert(data);
-    return jsonFormatado.replaceFirst(
-      RegExp(r'(?<="video": \[)[^[]+(?=])'),
-      '"A lot of bytes..."',
-    );
+    try {
+      final jsonFormatado = JsonEncoder.withIndent('  ').convert(data);
+      return jsonFormatado.replaceFirst(
+        RegExp(r'(?<="video": \[)[^[]+(?=])'),
+        '"A lot of bytes..."',
+      );
+    } catch (e) {
+      return 'Error formatting data: ${e.toString()}';
+    }
   }
 }

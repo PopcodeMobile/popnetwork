@@ -8,7 +8,7 @@ Add the `pop_network` package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pop_network: ^1.0.0
+  pop_network: ^1.1.1
 ```
 
 Then run pub get to install the package.

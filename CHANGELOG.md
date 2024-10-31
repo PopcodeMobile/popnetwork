@@ -1,6 +1,6 @@
 ## [1.1.1] - Feat Download
 
-- ajuste na serializacao do do data no log interceptor
+- adjustment in data serialization in interceptor log
 
 ## [1.1.0] - Feat Download
 

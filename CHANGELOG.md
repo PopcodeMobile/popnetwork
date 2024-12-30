@@ -1,3 +1,7 @@
+## [1.1.2] - Fix order from the logger interceptor
+
+- Add logic to order the list of interceptors to put the logger interceptor as the last item in the list.
+
 ## [1.1.1] - Feat Download
 
 - adjustment in data serialization in interceptor log

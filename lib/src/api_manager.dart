@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:pop_network/src/i_api_manager.dart';
+import 'package:pop_network/src/interceptors/pop_network_log_interceptor.dart';
 import 'package:pop_network/src/mock/mock_reply_params.dart';
 
 class ApiManager extends IApiManager {
@@ -251,5 +252,27 @@ class ApiManager extends IApiManager {
       deleteOnError: deleteOnError,
       lengthHeader: lengthHeader,
     );
+  }
+
+  @override
+  Interceptors get interceptors {
+    if (super
+        .interceptors
+        .any((interceptor) => interceptor is PopNetworkLogInterceptor)) {
+      if (super.interceptors.last is PopNetworkLogInterceptor) {
+        return super.interceptors;
+      }
+
+      final indexPopNetworkLogInterceptor = super.interceptors.indexWhere(
+            (interceptor) => interceptor is PopNetworkLogInterceptor,
+          );
+
+      final popNetworkLogInterceptor =
+          super.interceptors.removeAt(indexPopNetworkLogInterceptor);
+
+      super.interceptors.add(popNetworkLogInterceptor);
+    }
+
+    return super.interceptors;
   }
 }

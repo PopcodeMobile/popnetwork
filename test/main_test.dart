@@ -146,4 +146,40 @@ Future<void> main() async {
       expect(response.data, data);
     });
   });
+
+  group('custom HttpClient', () {
+    late CustomHttpClientFactory httpClientFactory;
+    late ApiManager apiManager;
+    late HttpServer server;
+
+    setUp(() async {
+      httpClientFactory = CustomHttpClientFactory();
+      apiManager = ApiManager(
+        baseUrl: baseUrl,
+        createHttpClient: httpClientFactory,
+      );
+      server = await createServer(
+        Router()..get('/get', (_) => Response.ok('OK')),
+      );
+    });
+
+    tearDown(() async {
+      await server.close();
+    });
+
+    test('works', () async {
+      final response = await apiManager.get('/get');
+      expect(response.data, 'OK');
+      expect(httpClientFactory.called, isTrue);
+    });
+  });
+}
+
+final class CustomHttpClientFactory {
+  bool called = false;
+
+  HttpClient call() {
+    called = true;
+    return HttpClient();
+  }
 }

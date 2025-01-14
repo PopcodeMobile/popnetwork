@@ -20,6 +20,8 @@ Future<void> main() async {
     late ApiManager apiManager;
     late HttpServer server;
 
+    final temporaryFile = File('${Directory.systemTemp}/data.json');
+
     setUp(() async {
       apiManager = ApiManager(
         baseUrl: baseUrl,
@@ -34,8 +36,11 @@ Future<void> main() async {
       );
     });
 
-    tearDown(() {
-      server.close();
+    tearDown(() async {
+      await Future.wait([
+        if (await temporaryFile.exists()) temporaryFile.delete(),
+        server.close(),
+      ]);
     });
 
     test('GET works', () async {
@@ -64,11 +69,9 @@ Future<void> main() async {
     });
 
     test('download works', () async {
-      final fileName = 'data.json';
-      final filePath = '${Directory.systemTemp}/$fileName';
-      await apiManager.download('/get', filePath);
-      expect(File(filePath).exists(), completion(true));
-      expect(File(filePath).readAsString(), completion('OK'));
+      await apiManager.download('/get', temporaryFile.path);
+      expect(temporaryFile.exists(), completion(true));
+      expect(temporaryFile.readAsString(), completion('OK'));
     });
   });
 
@@ -99,8 +102,8 @@ Future<void> main() async {
       );
     });
 
-    tearDown(() {
-      server.close();
+    tearDown(() async {
+      await server.close();
     });
 
     test('GET can be mocked', () async {

@@ -232,6 +232,7 @@ class ApiManager extends IApiManager {
     String lengthHeader = Headers.contentLengthHeader,
     bool deleteOnError = true,
     MockReplyParams? mockReplyParams,
+    FileAccessMode? fileAccessMode,
   }) async {
     if (_mockedEnvironment && mockReplyParams != null) {
       final jsonMock = await loadMockAsset!(mockReplyParams.mockPath);
@@ -251,6 +252,7 @@ class ApiManager extends IApiManager {
       onReceiveProgress: onReceiveProgress,
       deleteOnError: deleteOnError,
       lengthHeader: lengthHeader,
+      fileAccessMode: fileAccessMode ?? FileAccessMode.write,
     );
   }
 

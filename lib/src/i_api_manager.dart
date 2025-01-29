@@ -80,5 +80,6 @@ abstract class IApiManager extends DioForNative {
     String lengthHeader = Headers.contentLengthHeader,
     bool deleteOnError = true,
     MockReplyParams? mockReplyParams,
+    FileAccessMode? fileAccessMode,
   });
 }

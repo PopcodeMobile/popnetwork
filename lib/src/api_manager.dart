@@ -6,6 +6,7 @@ import 'package:dio/io.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:pop_network/src/i_api_manager.dart';
 import 'package:pop_network/src/interceptors/pop_network_log_interceptor.dart';
+import 'package:pop_network/src/mock/enums/mock_content_type_enum.dart';
 import 'package:pop_network/src/mock/mock_reply_params.dart';
 
 class ApiManager extends IApiManager {
@@ -213,10 +214,35 @@ class ApiManager extends IApiManager {
   ) async {
     await request.reply(
       params.status.code,
-      json.decode(mock),
+      buildResponse(
+        contentType: params.contentType,
+        mock: mock,
+      ),
       statusMessage: params.status.message,
       delay: params.delay,
+      headers: {
+        Headers.contentTypeHeader: buildHeaders(
+          contentType: params.contentType,
+        ),
+      },
     );
+  }
+
+  dynamic buildResponse({
+    required MockContentTypeEnum contentType,
+    required String mock,
+  }) {
+    return switch (contentType) {
+      MockContentTypeEnum.json => json.decode(mock),
+      MockContentTypeEnum.plain => mock.substring(1, mock.length - 1),
+    };
+  }
+
+  List<String> buildHeaders({required MockContentTypeEnum contentType}) {
+    return switch (contentType) {
+      MockContentTypeEnum.json => ['application/json'],
+      MockContentTypeEnum.plain => ['text/plain'],
+    };
   }
 
   @override

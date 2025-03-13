@@ -1,3 +1,9 @@
+## [1.2.0] - Add new parameter to allow response from mock with Plain Text
+
+- Add `MockContentTypeEnum` parameter to `ApiManager` to mock sends Plain Text response correctly
+- Parse String or Json according to the new parameter in mock
+- Send correct content-type header according to the new parameter in mock
+
 ## [1.1.3] - Add new parameter from Dio override
 
 - Add `FileAcessMode` parameter to `ApiManager` download methods 

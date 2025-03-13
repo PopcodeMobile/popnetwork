@@ -1,0 +1,4 @@
+enum MockContentTypeEnum {
+  plain,
+  json;
+}

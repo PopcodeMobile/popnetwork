@@ -14,3 +14,4 @@ export 'src/interceptors/pop_cache_interceptor.dart';
 export 'src/interceptors/pop_error_interceptor.dart';
 export 'src/interceptors/pop_network_log_interceptor.dart';
 export 'src/mock/mock_reply_params.dart';
+export 'src/mock/enums/mock_content_type_enum.dart';

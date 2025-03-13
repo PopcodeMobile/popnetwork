@@ -6,7 +6,7 @@ class MockReplyParams {
   const MockReplyParams({
     required this.mockPath,
     this.status = HttpStatusEnum.ok,
-    this.delay = const Duration(seconds: 1),
+    this.delay = const Duration(milliseconds: 500),
     this.contentType = MockContentTypeEnum.json,
   });
 

@@ -1,6 +1,6 @@
 ## [1.2.0] - Add new parameter to allow response from mock with Plain Text
 
-- Add `MockContentTypeEnum` parameter to `ApiManager` to mock sends Plain Text response correctly
+- Add `MockContentTypeEnum` parameter to `ApiManager` so mock can return Plain Text response correctly
 - Parse String or Json according to the new parameter in mock
 - Send correct content-type header according to the new parameter in mock
 - Update version dio to 5.8.0+1

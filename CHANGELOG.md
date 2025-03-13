@@ -3,7 +3,7 @@
 - Add `MockContentTypeEnum` parameter to `ApiManager` so mock can return Plain Text response correctly
 - Parse String or Json according to the new parameter in mock
 - Send correct content-type header according to the new parameter in mock
-- Update version dio to 5.8.0+1
+- Update Dio version to 5.8.0+1
 - Reduce delay on `MockReplyParams` to 500 milliseconds
 
 ## [1.1.3] - Add new parameter from Dio override

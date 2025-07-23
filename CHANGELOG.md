@@ -1,3 +1,5 @@
+## [1.2.1] - Increase HTTP Status Code max success range from 300 to 304
+
 ## [1.2.0] - Add new parameter to allow response from mock with Plain Text
 
 - Add `MockContentTypeEnum` parameter to `ApiManager` so mock can return Plain Text response correctly
@@ -8,7 +10,7 @@
 
 ## [1.1.3] - Add new parameter from Dio override
 
-- Add `FileAcessMode` parameter to `ApiManager` download methods 
+- Add `FileAcessMode` parameter to `ApiManager` download methods
 
 ## [1.1.2] - Fix order from the logger interceptor
 
@@ -26,7 +28,6 @@
 ## [1.0.2] - Improved Data Serialization with Error Handling
 
 - Updated logging behavior to attempt serialization of request data using `JsonEncoder`. If serialization fails (e.g., when handling `FormData`), an error message is logged instead of causing a crash. This ensures more robust logging for different types of request data.
-
 
 ## [1.0.1] - Fix mock load
 

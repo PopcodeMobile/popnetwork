@@ -1,3 +1,5 @@
+## [1.2.2] - Web support
+
 ## [1.2.1] - Increase HTTP Status Code max success range from 300 to 304
 
 ## [1.2.0] - Add new parameter to allow response from mock with Plain Text

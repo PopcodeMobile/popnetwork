@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:dio/browser.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
@@ -23,9 +25,17 @@ class ApiManager extends IApiManager {
       _dioAdapter = DioAdapter(dio: this);
       httpClientAdapter = _dioAdapter;
     } else if (createHttpClient != null) {
-      final ioHttpClientAdapter = IOHttpClientAdapter();
-      ioHttpClientAdapter.createHttpClient = createHttpClient;
-      httpClientAdapter = ioHttpClientAdapter;
+      late final HttpClientAdapter _httpClientAdapter;
+      if (kIsWeb) {
+        _httpClientAdapter = BrowserHttpClientAdapter(
+          withCredentials: false,
+        );
+      } else {
+        _httpClientAdapter = IOHttpClientAdapter();
+        (_httpClientAdapter as IOHttpClientAdapter).createHttpClient =
+            createHttpClient;
+      }
+      httpClientAdapter = _httpClientAdapter;
     }
 
     options = BaseOptions(

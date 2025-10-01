@@ -1,4 +1,4 @@
-## [1.2.2] - Web support
+## [1.2.2] - Add web support
 
 ## [1.2.1] - Increase HTTP Status Code max success range from 300 to 304
 

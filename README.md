@@ -8,10 +8,12 @@ Add the `pop_network` package to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pop_network: ^1.2.1
+  pop_network: ^1.2.2
 ```
 
 Then run pub get to install the package.
+
+> Requires Dio `^5.8.0+1`. Versions up to `1.2.1` are **not** compatible with Dio `5.11.0` or newer — see [Custom Interceptors](#custom-interceptors).
 
 ## Getting Started
 
@@ -93,6 +95,38 @@ final response = await apiManager.get(
 print(response.data);
 ```
 
+### Custom Interceptors
+
+Besides the interceptors shipped with this package, `ApiManager` accepts any Dio `Interceptor` through the `interceptors` parameter. Always declare it with `extends Interceptor`, never `implements Interceptor`:
+
+```dart
+import 'package:dio/dio.dart';
+
+class AuthInterceptor extends Interceptor {
+  AuthInterceptor(this.token);
+
+  final String token;
+
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    options.headers['Authorization'] = 'Bearer $token';
+    handler.next(options);
+  }
+}
+```
+
+Since Dio 5.11.0 the request pipeline dispatches through private members of `Interceptor` (`_invokeRequest`/`_invokeResponse`/`_invokeError`), which cannot be inherited through `implements`. An interceptor declared with `implements` still compiles, but every request fails at runtime with `NoSuchMethodError: ... has no instance method '_invokeError'`.
+
+Interceptors run in the order they are added, so `PopNetworkLogInterceptor` is always moved to the tail of the queue by `ApiManager` — that way it prints whatever the other interceptors changed.
+
 ## Issues and Contributions
 
-If you encounter any issues or would like to contribute to this library, please visit the [GitHub repository](https://github.com/PopcodeMobile/pop_network).
+If you encounter any issues or would like to contribute to this library, please visit the [GitHub repository](https://github.com/PopcodeMobile/popnetwork).
+
+Before opening a pull request, run the checks the pre-commit hook performs, plus the test suite:
+
+```bash
+dart format . --set-exit-if-changed
+dart analyze
+dart test
+```

@@ -8,7 +8,13 @@ import 'package:dio/dio.dart';
 /// It's better to add [PopNetworkLogInterceptor] to the tail of the interceptor queue,
 /// otherwise the changes made in the interceptor behind A will not be printed out.
 /// This is because the execution of interceptors is in the order of addition.
-class PopNetworkLogInterceptor implements Interceptor {
+///
+/// It must `extend` [Interceptor], never `implement` it: since dio 5.11.0 the
+/// request pipeline dispatches through private members of [Interceptor]
+/// (`_invokeRequest`/`_invokeResponse`/`_invokeError`), which cannot be
+/// inherited through `implements`. Doing so still compiles, but every request
+/// fails at runtime with `NoSuchMethodError`.
+class PopNetworkLogInterceptor extends Interceptor {
   PopNetworkLogInterceptor({
     this.showRequestHeader = false,
     this.showRequestBody = true,

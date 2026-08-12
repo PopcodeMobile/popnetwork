@@ -1,3 +1,8 @@
+## [1.2.2] - Fix PopNetworkLogInterceptor with Dio 5.11.0
+
+- `PopNetworkLogInterceptor` now extends `Interceptor` instead of implementing it. Since Dio 5.11.0 the request pipeline dispatches through private members of `Interceptor` (`_invokeRequest`/`_invokeResponse`/`_invokeError`), which cannot be inherited through `implements` — every request was failing at runtime with `NoSuchMethodError: Class 'PopNetworkLogInterceptor' has no instance method '_invokeError'`
+- Add regression tests running the interceptors through the real Dio pipeline
+
 ## [1.2.1] - Increase HTTP Status Code max success range from 300 to 304
 
 ## [1.2.0] - Add new parameter to allow response from mock with Plain Text
